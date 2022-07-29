@@ -30,11 +30,10 @@ If you want to override the accent color create two new prefs, both string type 
 
 ## Screenshots
 
-	https://imgur.com/fC6V4vJ
+	https://i.imgur.com/fC6V4vJ.png
 
-	https://imgur.com/QzgKM27
+	https://i.imgur.com/QzgKM27.png
 
-	https://imgur.com/mCwP6i4
-
+	https://i.imgur.com/mCwP6i4.png
 
 
