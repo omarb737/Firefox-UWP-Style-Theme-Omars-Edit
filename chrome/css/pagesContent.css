@@ -1,0 +1,1034 @@
+/* about: specific pages */
+
+@-moz-document regexp("about:blank") {
+	@media (prefers-color-scheme: dark) {
+		body {
+			background-color: #1A1A1A;
+		}
+	}
+	@media (prefers-color-scheme: light) {
+		body {
+			background-color: #E6E6E6;
+		}
+	}
+}
+
+@-moz-document regexp("chrome:\/\/(?!devtools).*"), regexp("about:(?!blank).*") {
+
+	treecol {
+		border-inline-start-width: 0px !important;
+	}
+	listheader {
+		border-bottom: 0px !important;
+	}
+	.menulist-label-box {
+		border: none !important;
+	}
+	.menulist-dropmarker {
+		padding-right: 0px !important;
+	}
+	.menulist-label-box {
+		padding-left: 0px !important;
+	}
+	resizer {
+		display: none !important;
+	}
+	* {
+		outline: none !important;
+	}
+	window, dialog {
+		background-color: transparent !important;
+		padding: 0px !important;
+	}
+	.dialogFrame {
+		margin: 0px !important;
+	}
+	.dialogTitleBar {
+		background-color: var(--uwp-layer-fill-alt) !important;
+		border-bottom: none !important;
+	}
+	.dialogOverlay[topmost="true"] {
+		background: var(--uwp-dialog-smoke) !important;
+	}
+	.dialogBox, .container[role="dialog"] {
+		background-color: var(--uwp-dialog-background) !important;
+		background-clip: padding-box !important;
+		color: var(--uwp-global-front) !important;
+		box-shadow: var(--uwp-shadow-popup) !important;
+		border: 0px solid var(--uwp-dialog-border) !important;
+		animation: fadeInScale .3s;
+		border-radius: var(--uwp-tags-overlay-radius) !important;
+		overflow: hidden !important;
+	}
+	.dialog-content-box, .container[role="dialog"] > .content {
+		padding: 24px !important;
+		margin-bottom: 24px !important;
+		border-bottom: 0px solid var(--uwp-dialog-separator) !important;
+		background-color: var(--uwp-layer-fill-alt) !important;
+		background-clip: padding-box !important;
+	}
+	.dialog-button-box {
+		padding: 0px 24px 24px 24px !important;
+	}
+	.dialog-button-box > button + button {
+		margin-left: 4px !important;
+		margin-right: 0px !important;
+	}
+	.dialogClose {
+		margin: 0px !important;
+		width: 40px !important;
+		height: 25px !important;
+	}
+	.groove {
+		border: none !important;
+	}
+	@supports not -moz-bool-pref("uwp.sun-valley") {
+		.dialogBox {
+			border: 1px solid AccentColor !important;
+		}
+		@supports(backdrop-filter: blur(1px)) {
+			body[role="dialog"], dialog[subdialog="true"], window[role="dialog"]:not([chromehidden]) {
+				background: transparent !important;
+			}
+			.dialogBox {
+				background-image: var(--uwp-acrylic-noise) !important;
+				background-color: var(--uwp-dialog-background-blur) !important;
+				backdrop-filter: var(--uwp-acrylic-backdrop) !important;
+			}
+		}
+	}
+	.groupbox-title {
+		background: transparent !important;
+		border-bottom: 0px !important;
+		padding: 0px !important;
+	}
+	.dialogBox > caption {
+		padding: 0px !important;
+	}
+	.prefpane {
+		background: black !important;
+		color: white !important;
+	}
+	separator.groove:not([orient="vertical"]) {
+		border-top: 0px !important;
+	}
+	.advanced-panel {
+		border: none !important;
+	}
+	#advancedPanelButtonContainer {
+		background: transparent !important;
+	}
+	.windowDialog {
+		color: white !important;
+	}
+	.list > scrollbox > .scrollbox-innerbox {
+		border: none !important;
+	}
+	:root > * {
+		font-size: 14px !important;
+	}
+
+	html.private {
+		--in-content-page-background: #25003e !important;
+	}
+
+}
+
+/* Extra stuff */
+@-moz-document regexp("chrome:\/\/(?!devtools).*"), regexp("about:(?!blank).*") {
+	/* Fixes for FF62~ Placed here due to CSS order priority */
+	.help-button > .text-link > hbox {
+		margin-top: 2px !important;
+	}
+	/*END*/
+	.sidebar-footer-button > .text-link {
+		height: 40px !important;
+		margin-inline-start: 0px !important;
+		padding-left: 14px !important;
+		color: var(--uwp-global-front) !important;
+	}
+	.sidebar-footer-button > .text-link:hover {
+		border-radius: 0px !important;
+		color: var(--uwp-global-front) !important;
+	}
+	.sidebar-footer-button {
+		padding: 0px !important;
+	}
+	.sidebar-footer-button > .text-link > hbox {
+		margin-top: 10px !important;
+	}
+	.sidebar-footer-button:last-of-type {
+		margin-bottom: 8px !important;
+	}
+	.sidebar-footer-label {
+		font-size: 13px !important;
+		margin: 0px !important;
+		padding-left: 10px !important;
+		line-height: 1.4em !important;
+		padding-bottom: 1px !important;
+	}
+	.sidebar-footer-icon {
+		height: 16px !important;
+		width: 16px !important;
+		margin: 0px !important;
+		translate: none !important;
+		scale: 100% !important;
+		fill: var(--uwp-global-front) !important;
+		margin-right: 2px !important;
+	}
+	.sidebar-footer-link {
+		padding-left: 12px !important;
+		height: var(--uwp-nav-item-height) !important;
+		fill: currentColor !important;
+		color: var(--uwp-nav-item-color) !important;
+		background-color: var(--uwp-nav-item-background) !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+		margin: var(--uwp-context-item-margin) !important;
+		background-position-x: 14px !important;
+		background-position-y: 11px !important;
+		background-size: 18px !important;
+	}
+	.sidebar-footer-link:hover, .sidebar-footer-label {
+		color: var(--uwp-global-front) !important;
+	}
+	.sidebar-footer-link-text {
+		color: var(--uwp-global-front) !important;
+		padding-bottom: 1px !important;
+	}
+	.sidebar-footer-list {
+		margin-left: 0px !important;
+		margin-bottom: 8px !important;
+	}
+	.category-icon {
+		margin-left: calc(12px - var(--uwp-nav-item-selector-width)) !important;
+		height: 16px !important;
+		width: 16px !important;
+		margin-right: 16px !important;
+	}
+	#categories {
+		padding-top: 8px !important;
+		font-size: 12px !important;
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+		margin-top: 0px !important;
+	}
+	#categories > .category {
+		color: var(--uwp-nav-item-color) !important;
+		background-color: var(--uwp-nav-item-background) !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+		margin: var(--uwp-context-item-margin) !important;
+	}
+	#categories > .category:not(richlistitem) > .category-name {
+		padding-left: calc(44px - var(--uwp-nav-item-selector-width)) !important;
+		font-size: inherit !important;
+	}
+	#categories > .category:not(button) > .category-name {
+		padding-left: 0px !important;
+	}
+	#categories > .category:not(richlistitem) {
+		cursor: default !important;
+		display: flex !important;
+		border: none !important;
+		padding: 0px !important;
+		margin: var(--uwp-context-item-margin) !important;
+		min-height: var(--uwp-nav-item-height) !important;
+		font-size: inherit !important;
+		background-size: 16px !important;
+		background-repeat: no-repeat !important;
+		background-position-x: 12px !important;
+		background-position-y: calc(var(--uwp-nav-item-height) / 2 - 8px) !important;
+	}
+	#categories > .category:is(richlistitem) {
+		position: absolute !important;
+		min-height: var(--uwp-nav-item-height) !important;
+		transition: none !important;
+		padding-left: 0px !important;
+		cursor: default !important;
+	}
+	#categories > .category:is(div) > .category-name {
+		margin-left: 40px !important;
+	}
+	#categories > .category::before {
+		content: "";
+		width: 0 !important;
+		display: block !important;
+		padding: calc(var(--uwp-nav-item-selector-height) / 2) calc(var(--uwp-nav-item-selector-width) / 2) !important;
+		background: transparent !important;
+		border-radius: var(--uwp-nav-item-selector-radius);
+	}
+
+	@media (prefers-color-scheme: light) {
+		#categories > .category:is([selected], .selected)::before {
+			background: color-mix(in srgb, AccentColor 60%, black) !important;
+		}
+	}
+	@media (prefers-color-scheme: dark) {
+		#categories > .category:is([selected], .selected)::before {
+			background: color-mix(in srgb, AccentColor 60%, white) !important;
+		}
+	}
+
+	#categories > .category[disabled]:not(button) {
+		opacity: 0.5 !important;
+	}
+	#categories > .category[hidden=""] {
+		display: none !important;
+	}
+	#categories > .category:hover, .sidebar-footer-link:hover {
+		color: var(--uwp-nav-item-color-hover) !important;
+		background-color: var(--uwp-nav-item-background-hover) !important;
+	}
+	#categories > .category:hover:active, .sidebar-footer-link:hover:active {
+		color: var(--uwp-nav-item-color-active) !important;
+		background-color: var(--uwp-nav-item-background-active) !important;
+	}
+	#categories > .category[selected], #categories > .category.selected {
+		color: var(--uwp-nav-item-color-selected) !important;
+		background-color: var(--uwp-nav-item-background-selected) !important;
+	}
+	#categories > .category[selected]:hover, #categories > .category.selected:hover {
+		color: var(--uwp-nav-item-color-selected-hover) !important;
+		background-color: var(--uwp-nav-item-background-selected-hover) !important;
+	}
+	#categories > .category[selected]:hover:active, #categories > .category.selected:hover:active {
+		color: var(--uwp-nav-item-color-selected-active) !important;
+		background-color: var(--uwp-nav-item-background-selected-active) !important;
+	}
+	#categories hr {
+		margin: 0px !important;
+		border: none !important;
+		height: 20px !important;
+	}
+	.message-bar {
+		background: transparent !important;
+		color: white !important;
+	}
+	.main-content {
+		border-top-left-radius: var(--uwp-tags-overlay-radius);
+		background-color: var(--uwp-nav-content-background) !important;
+		border: var(--uwp-nav-content-border) !important;
+		border-right-width: 0px !important;
+		border-bottom-width: 0px !important;
+	}
+	/* Font Fixes */
+	textbox {
+		font-size: 12px !important;
+	}
+	.anonymous-div {
+		line-height: inherit !important;
+	}
+	:root {
+		--in-content-sidebar-width: 250px !important;
+	}
+}
+/* Move this in the future */
+@-moz-document regexp("chrome:\/\/(?!devtools).*"), regexp("about:(?!blank).*") {
+	@media (max-width: 830px) {
+		#categories {
+			width: 40px !important;
+		}
+		#categories > .category {
+			padding-inline-start: 0px !important;
+			margin-inline-end: 0px !important;
+			padding-right: 2px !important;
+		}
+		.main-content {
+			padding-left: 28px !important;
+			padding-right: 28px !important;
+		}
+		sidebar-footer-button > .text-link {
+			margin-inline-start: 0px !important;
+			padding-left: 0px !important;
+		}
+	}
+}
+
+@-moz-document url("about:newtab"), url("about:home") {
+	body {
+		--newtab-topsites-outer-card-hover: none !important;
+		--newtab-overlay-color: none !important;
+	}
+	.top-site-outer .tile {
+		color: var(--uwp-button-color) !important;
+		background-color: var(--uwp-button-background) !important;
+		border: var(--uwp-button-border) !important;
+		background-clip: padding-box !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+		box-shadow: none !important;
+	}
+	.top-site-outer .tile:hover {
+		color: var(--uwp-button-color-hover) !important;
+		background-color: var(--uwp-button-background-hover) !important;
+		border: var(--uwp-button-border-hover) !important;
+	}
+	.top-site-outer .tile:hover:active {
+		color: var(--uwp-button-color-active) !important;
+		background-color: var(--uwp-button-background-active) !important;
+		border: var(--uwp-button-border-active) !important;
+	}
+	.top-sites-list:not(.dnd-active) .top-site-outer:is(.active, :focus, :hover), .rich-icon {
+		background-color: transparent !important;
+	}
+	.top-site-outer .context-menu-button {
+		opacity: 0 !important;
+		fill: var(--uwp-button-color-hover)  !important;
+		transition: opacity 200ms !important;
+	}
+	.top-site-outer:is(:hover) .context-menu-button {
+		opacity: 1 !important;
+	}
+	.icon-settings {
+		padding: 12px !important;
+	}
+	.external-link {
+		padding-left: 24px !important;
+		background-position-x: 4px !important;
+		text-decoration: none !important;
+	}
+	.customize-menu {
+		background: var(--uwp-background) !important;
+	}
+	.customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active, .customize-menu.customize-animate-enter, .customize-menu.customize-animate-exit {
+		box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, .32) !important;
+	}
+	.outer-wrapper.newtab-experience .top-site-outer .tile, .outer-wrapper.newtab-experience .ds-card-grid.ds-card-grid-border .ds-card, .outer-wrapper.newtab-experience .card-outer .card {
+		box-shadow: none !important;
+		transition: box-shadow 200ms !important;
+	}
+	.outer-wrapper.newtab-experience .top-site-outer .tile:hover, .outer-wrapper.newtab-experience .ds-card-grid.ds-card-grid-border .ds-card:hover, .outer-wrapper.newtab-experience .card-outer .card:hover {
+		box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, .32) !important;
+	}
+	.ds-hero-item .context-menu-button, .ds-list-item .context-menu-button, .ds-card .context-menu-button, .ds-signup .context-menu-button, .outer-wrapper.newtab-experience .top-site-outer .context-menu-button, .card-outer .context-menu-button {
+		fill: var(--uwp-global-front) !important;
+		background-color: transparent !important;
+		border: none !important;
+		transform: unset !important;
+	}
+	.ds-hero-item .context-menu-button, .ds-list-item .context-menu-button, .ds-card .context-menu-button, .ds-signup .context-menu-button, .card-outer .context-menu-button {
+		fill: black !important;
+		top: 0px !important;
+		right: 0px !important;
+	}
+	.ds-hero-item .context-menu-button:active, .ds-list-item .context-menu-button:active, .ds-card .context-menu-button:active, .ds-signup .context-menu-button:active, .card-outer .context-menu-button:active {
+		background-color: transparent !important;
+	}
+	.ds-card-grid.ds-card-grid-border .ds-card {
+		background: var(--newtab-card-background-color) !important;
+	}
+	.ds-card .meta .source, .ds-card .ds-card-link:hover header {
+		color: AccentColor !important;
+	}
+	.ds-card .ds-card-link:is(:active, :focus) header {
+		color: #666666 !important;
+	}
+	.outer-wrapper.newtab-experience .ds-card .ds-card-link {
+		box-shadow: none !important;
+	}
+	.a11y-link-button {
+		text-decoration: none !important;
+	}
+	input[type="text"]:focus + .icon-clear-input {
+		fill: black !important;
+	}
+	.icon-clear-input, .icon-clear-input:hover:active {
+		background-color: transparent !important;
+		border: none !important;
+	}
+	.modal {
+		background-color: var(--uwp-dialog-background) !important;
+		background-clip: padding-box !important;
+		color: var(--uwp-global-front) !important;
+		box-shadow: var(--uwp-shadow-popup) !important;
+		border: 0px solid var(--uwp-dialog-border) !important;
+		animation: none !important;
+		border-radius: var(--uwp-tags-overlay-radius) !important;
+	}
+	.modal .actions {
+		border-top-color: var(--uwp-dialog-separator) !important;
+	}
+	.modal .form-input-container {
+		max-width: unset !important;
+		background-color: var(--uwp-dialog-overlay) !important;
+		background-clip: padding-box !important;
+		border-top-left-radius: var(--uwp-tags-overlay-radius) !important;
+		border-top-right-radius: var(--uwp-tags-overlay-radius) !important;
+	}
+	@supports not -moz-bool-pref("uwp.sun-valley") {
+		.edit-topsites-wrapper .modal {
+			border: 0px solid AccentColor !important;
+		}
+		.customize-menu {
+			background: var(--uwp-sidebar) !important;
+		}
+		.modal {
+			border: 0px solid AccentColor !important;
+		}
+	}
+	@supports -moz-bool-pref("uwp.sun-valley") {
+		@supports(backdrop-filter: blur(1px)) {
+			.customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active, .customize-menu.customize-animate-enter, .customize-menu.customize-animate-exit {
+				background-image: var(--uwp-acrylic-noise) !important;
+				background-color: var(--uwp-context-background-blur) !important;
+				backdrop-filter: var(--uwp-acrylic-backdrop) !important;
+			}
+		}
+	}
+}
+
+@-moz-document url("about:newtab"), url("about:home"), url("about:privatebrowsing") {
+	.search-handoff-button, .search-handoff-button:hover, .search-handoff-button:hover:active {
+		background-color: var(--newtab-textbox-background-color) !important;
+		border: none !important;
+		border-radius: 0px !important;
+	}
+	body:not(.inline-onboarding) .fixed-search .search-wrapper {
+		border: none !important;
+		box-shadow: var(--uwp-shadow-popup) !important;
+	}
+	@supports(backdrop-filter: blur(1px)) {
+		body:not(.inline-onboarding) .fixed-search .search-wrapper {
+			background-image: var(--uwp-acrylic-noise) !important;
+			background-color: var(--uwp-context-background-blur) !important;
+			backdrop-filter: var(--uwp-acrylic-backdrop) !important;
+		}
+	}
+	.search-handoff-button .fake-textbox {
+		margin-left: 48px !important;
+	}
+	.fake-textbox {
+		color: var(--uwp-global-front) !important;
+	}
+}
+@-moz-document url("about:privatebrowsing")  {
+	.info, .info h1, #private-browsing-vpn-text {
+		color: white !important;
+	}
+}
+
+@-moz-document url("about:config") {
+	#configTree {
+		margin-bottom: 0px !important;
+		box-shadow: none !important
+	}
+}
+
+@-moz-document url-prefix("about:preferences") {
+
+	@supports not -moz-bool-pref("uwp.sun-valley") {
+		:root {
+			--uwp-expander-background: var(--uwp-tags-richlistitem-hover) !important;
+		}
+	}
+
+	.content-blocking-category {
+		color: var(--uwp-expander-color) !important;
+		background: transparent !important;
+		box-shadow: none !important;
+		padding: 0px !important;
+		min-height: var(--uwp-expander-min-height) !important;
+		margin-top: 0px !important;
+		border: none !important;
+	}
+	.content-blocking-category > hbox {
+		padding-left: var(--uwp-expander-hor-padding) !important;
+		padding-right: var(--uwp-expander-hor-padding) !important;
+		padding-top: var(--uwp-expander-hor-padding) !important;
+		background-color: var(--uwp-expander-background) !important;
+		background-clip: padding-box !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+		border: var(--uwp-expander-border) !important;
+		border-bottom-width: 0px !important;
+		border-bottom-left-radius: 0px !important;
+		border-bottom-right-radius: 0px !important;
+	}
+	.content-blocking-category > .indent {
+		margin-inline-end: 0px !important;
+		margin-inline-start: 0px !important;
+	}
+	.content-blocking-category > .indent > label {
+		width: 100%;
+	}
+	.content-blocking-category > .indent > * {
+		padding-left: var(--uwp-expander-hor-padding) !important;
+		padding-right: var(--uwp-expander-hor-padding) !important;
+		border: var(--uwp-expander-border) !important;
+		border-top-width: 0px !important;
+		border-bottom-left-radius: var(--uwp-tags-control-radius) !important;
+		border-bottom-right-radius: var(--uwp-tags-control-radius) !important;
+	}
+	.content-blocking-category > .indent > vbox {
+		background-color: var(--uwp-expander-content-background) !important;
+		background-clip: padding-box !important;
+	}
+	.content-blocking-category > .indent > :not(vbox) {
+		padding-bottom: var(--uwp-expander-hor-padding) !important;
+		background-color: var(--uwp-expander-background) !important;
+		background-clip: padding-box !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+		border: var(--uwp-expander-border) !important;
+		border-top-width: 0px !important;
+		border-top-left-radius: 0px !important;
+		border-top-right-radius: 0px !important;
+	}
+	.content-blocking-category:is(.expanded, .selected) > .indent > :not(vbox) {
+		border-radius: 0px !important;
+	}
+	.content-blocking-reload-desc-container > .content-blocking-info-image {
+		margin-top: unset !important;
+		align-self: unset !important;
+	}
+	.content-blocking-reload-description {
+		display: inline-flex !important;
+		align-items: center !important;
+	}
+	.sticky-container {
+		background-color: var(--uwp-sticky-container-hack) !important;
+	}
+	.help-button > .text-link {
+		border-radius: 0px !important;
+	}
+	.help-button > .text-link:hover:active {
+		color: white !important;
+	}
+	#defaultFontSize {
+		width: 100px !important;
+	}
+	.spotlight {
+		background-color: rgba(100,100,100,0.3) !important;
+		border-radius: 0px !important;
+	}
+	.fxaProfileImage.actionable {
+		border-width: 2px !important;
+		border-color: transparent !important;
+	}
+	.fxaProfileImage.actionable:hover {
+		border-color: #505050 !important;
+	}
+	.fxaProfileImage.actionable:hover:active {
+		border-color: AccentColor !important;
+	}
+	#categories > scrollbox > box {
+		padding: 0px !important;
+	}
+	.accessory-button {
+		height: auto !important;
+	}
+	.extension-controlled {
+		fill: var(--uwp-global-front) !important;
+		-moz-context-properties: fill !important;
+		background-color: transparent !important;
+	}
+	.updateSettingCrossUserWarningContainer {
+		background-color: transparent !important;
+	}
+	.navigation {
+		background-color: transparent !important;
+		overflow-y: hidden !important;
+	}
+	@supports not -moz-bool-pref("uwp.sun-valley") {
+		.navigation {
+			background-color: var(--uwp-pages-sidepanel) !important;
+		}
+	}
+	.searchBarImage {
+		-moz-context-properties: fill, stroke;
+		fill: var(--chrome-secondary-background-color) !important;
+		stroke: gray !important;
+	}
+	.sync-group {
+		border-radius: 0px !important;
+		background: transparent !important;
+		border: none !important;
+	}
+	/* Icons */
+	/* Fixes FF62~ */
+	.navigation > .help-button {
+		margin-bottom: 8px !important;
+		padding: 0px !important;
+	}
+	.help-button > .text-link {
+		margin-inline-start: 0px !important;
+		height: 40px !important;
+	}
+}
+
+@-moz-document url("about:downloads") {
+	#contentAreaDownloadsView {
+		padding: 0px !important;
+		background-color: var(--uwp-background) !important;
+	}
+	.downloadButton {
+		margin: 16px 0px !important;
+		border-color: transparent !important;
+		background-color: transparent !important;
+	}
+	.downloadButton > .button-box {
+		padding: 0px !important;
+		background: transparent !important;
+	}
+	#downloadsListBox > richlistitem {
+		height: 72px !important;
+	}
+}
+
+@-moz-document url("about:addons") {
+	.theme-enable-button {
+		height: unset !important;
+	}
+	html {
+		height: 100% !important;
+	}
+	body {
+		height: 100% !important;
+	}
+	#full {
+		height: 100% !important;
+	}
+	#content {
+		border-top-left-radius: var(--uwp-tags-overlay-radius);
+		background-color: var(--uwp-nav-content-background) !important;
+		border: var(--uwp-nav-content-border) !important;
+		border-right-width: 0px !important;
+		border-bottom-width: 0px !important;
+		overflow: scroll !important;
+	}
+	.sticky-container, .main-heading, .main-search {
+		background-color: var(--uwp-sticky-container-hack) !important;
+	}
+	#sidebar {
+		background-color: transparent !important;
+	}
+	@supports not -moz-bool-pref("uwp.sun-valley") {
+		#sidebar {
+			background-color: var(--uwp-pages-sidepanel) !important;
+		}
+	}
+	button.button-link {
+		background: transparent !important;
+		border: none !important;
+		cursor: default !important;
+		text-decoration: underline !important;
+		margin: 0px !important;
+		color: AccentColor !important;
+	}
+	button.button-link:hover {
+		color: #999999 !important;
+	}
+	button.button-link:hover:active {
+		color: #666666 !important;
+		background: transparent !important;
+		border: none !important;
+	}
+	.button-box {
+		padding: 0px 5px !important;
+	}
+	.detail-view-container {
+		color: white !important;
+	}
+	.detail-row, .detail-row-complex {
+		text-shadow: none !important;
+	}
+	.icon[src=""] {
+		fill: AccentColorText !important;
+		-moz-context-properties: fill !important;
+	}
+	.addon-view[notification], .addon-view[pending] {
+		background-image: none !important;
+	}
+	.addon[privateBrowsing="true"] .privateBrowsing-notice-container {
+		margin-top: 5px !important;
+	}
+	.alert {
+		color: white !important;
+		background-color: black !important;
+	}
+	#header-utils-btn {
+		fill: white !important;
+	}
+	#header-utils-btn[open] {
+		padding-top: 3px !important;
+		padding-bottom: 3px !important;
+		background-color: #404040 !important;
+	}
+	#heading {
+		margin-top: 6px !important;
+	}
+	/* Icons */
+	input[type="radio"] + span {
+		position: relative !important;
+	}
+	/* Fixes for FF62~ */
+	.addon {
+		border-inline-start: none !important;
+		border-bottom: none !important;
+		padding: 5px !important;
+	}
+}
+/* New HTML-based addons page */
+@-moz-document url("chrome://mozapps/content/extensions/aboutaddons.html"), url-prefix("about:addons") {
+	.rating-star {
+		fill: AccentColor !important;
+	}
+	.card.addon {
+		background: transparent !important;
+	}
+	addon-card:not([expanded]) .card.addon, recommended-addon-card .card.addon {
+		color: var(--uwp-expander-color) !important;
+		border: var(--uwp-expander-border) !important;
+		background-color: var(--uwp-expander-background) !important;
+		background-clip: padding-box !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+		box-shadow: none !important;
+		padding: 16px !important;
+		min-height: 51px !important;
+		cursor: default !important;
+		margin-bottom: 3px !important;
+	}
+	addon-card:not([expanded]) .card.addon:hover, recommended-addon-card .card.addon:hover {
+		color: var(--uwp-expander-color-hover) !important;
+		border: var(--uwp-expander-border-hover) !important;
+		background-color: var(--uwp-expander-background-hover) !important;
+	}
+	addon-card:not([expanded]) .card.addon:hover:active, recommended-addon-card .card.addon:hover:active {
+		color: var(--uwp-expander-color-active) !important;
+		border: var(--uwp-expander-border-active) !important;
+		background-color: var(--uwp-expander-background-active) !important;
+	}
+	.addon-name-container {
+		margin: 0px !important;
+	}
+	@supports not -moz-bool-pref("uwp.sun-valley") {
+		.card-heading-icon {
+			fill: AccentColorText !important;
+			background-color: AccentColor !important;
+			padding: 4px !important;
+		}
+	}
+	addon-card .card-heading-icon {
+		margin-bottom: unset !important;
+	}
+	.card-heading-icon {
+		fill: var(--uwp-foreground) !important;
+		padding: 4px !important;
+		margin-top: auto !important;
+		margin-bottom: auto !important;
+	}
+	.card-contents {
+		width: calc(var(--section-width) - var(--card-padding) * 4 - var(--addon-icon-size)) !important;
+	}
+	.disco-description-statistics, recommended-addon-card .addon-description {
+		margin-top: 4px !important;
+	}
+	.addon-name-link, .addon-name-link:hover, .addon-name-link:hover:active {
+		color: var(--uwp-foreground) !important;
+		cursor: default !important;
+	}
+	.card-heading-image {
+		    width: calc(var(--section-width) - 2px) !important;
+	}
+}
+
+/*
+@-moz-document url("about:memory") {
+	button + button {
+		margin-left: 10px !important;
+	}
+	html {
+		background: black !important;
+	}
+	div.opsRow {
+		border: none !important;
+		border-radius: 0px !important;
+	}
+	div.section {
+		border: none !important;
+		border-radius: 0px !important;
+	}
+}
+*/
+@-moz-document url("about:url-classifier") {
+	.toggle-container-with-text + .toggle-container-with-text {
+		margin-top: 5px !important;
+	}
+}
+
+@-moz-document url("about:welcome") {
+	.firstrun-sign-in {
+		background: rgba(0, 0, 0, 0.5) !important;
+		color: white !important;
+		border: 1px solid AccentColor !important;
+	}
+	.firstrun-sign-in .extra-links {
+		color: darkgray !important;
+	}
+}
+
+@-moz-document url("about:sessionrestore") {
+	#tabsToggle {
+		padding-right: 30px !important;
+	}
+	#tabsToggle::after {
+		background-size: 16px !important;
+		left: -4px !important;
+	}
+}
+
+@-moz-document url-prefix("about:reader") {
+	.toolbar {
+		background-color: var(--uwp-context-background) !important;
+		background-clip: padding-box !important;
+		background-image: none !important;
+		border: 0px var(--uwp-context-border) solid !important;
+		border-radius: var(--uwp-tags-overlay-radius) !important;
+		box-shadow: var(--uwp-shadow-context) !important;
+		width: 38px !important;
+	}
+	.reader-controls {
+		width: 48px !
+	}
+	button {
+		fill: var(--uwp-context-item-color) !important;
+		background-color: var(--uwp-context-item-background) !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+		padding-top: var(--uwp-context-item-padding-top) !important;
+		padding-bottom: var(--uwp-context-item-padding-bottom) !important;
+		border: none !important;
+		font-size: 12px !important;
+		margin: var(--uwp-context-item-margin) !important;
+	}
+	button:hover {
+		background-color: var(--uwp-context-item-background-hover) !important;
+	}
+	.dropdown-popup {
+		/* Backdrop filter here... */
+		background-color: var(--uwp-context-background) !important;
+		background-clip: padding-box !important;
+		background-image: none !important;
+		border: 0px var(--uwp-context-border) solid !important;
+		border-radius: var(--uwp-tags-overlay-radius) !important;
+		box-shadow: var(--uwp-shadow-context) !important;
+		opacity: 0 !important;
+		transition: opacity 150ms, visibility 0s 2s !important;
+	}
+	.open > .dropdown-popup {
+		opacity: 1 !important;
+		transition: opacity 150ms !important;
+	}
+	.dropdown-arrow {
+		display: none !important;
+	}
+	.narrate-row:not(:first-child) {
+		border: none !important;
+	}
+	.font-type-buttons > button > .description {
+		color: #BEBEBE !important;
+	}
+	@supports(backdrop-filter: blur(1px)) {
+		.dropdown-popup {
+			background-image: var(--uwp-acrylic-noise) !important;
+			background-color: var(--uwp-context-background-blur) !important;
+			backdrop-filter: var(--uwp-acrylic-backdrop) !important;
+		}
+	}
+}
+
+@-moz-document url-prefix("about:tabcrashed") {
+	#reportBox {
+		background-color: transparent !important;
+	}
+}
+
+@-moz-document url-prefix("about:logins") {
+	.fxaccounts-avatar-button, .fxaccounts-avatar-button:hover:active {
+		background: transparent !important;
+		border: none !important;
+	}
+	.meta-info {
+		font-weight: 400 !important;
+		font-size: initial !important;
+	}
+	.edit-button, .delete-button {
+		background-position-x: 8px !important;
+		padding-left: 32px !important;
+	}
+	login-list, div.meta {
+		background-color: transparent !important;
+		border: none !important;
+	}
+	.login-list-item {
+		border-bottom: none !important;
+	}
+	.reveal-password-wrapper > input[type="text"], .reveal-password-wrapper > input[type="password"] {
+		margin-right: 12px !important;
+	}
+	input.reveal-password-checkbox {
+		fill: var(--uwp-foreground) !important;
+		background-position-x: 1px !important;
+		background-position-y: 1px !important;
+	}
+	.login-list-item {
+		color: var(--uwp-expander-color) !important;
+		border: var(--uwp-expander-border) !important;
+		background-color: var(--uwp-expander-background) !important;
+		background-clip: padding-box !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+		box-shadow: none !important;
+		padding-left: 0!important;
+		padding-right: var(--uwp-expander-hor-padding) !important;
+		min-height: var(--uwp-expander-min-height) !important;
+	}
+	.login-list-item:hover {
+		color: var(--uwp-expander-color-hover) !important;
+		border: var(--uwp-expander-border-hover) !important;
+		background-color: var(--uwp-expander-background-hover) !important;
+	}
+	.login-list-item:hover:active {
+		color: var(--uwp-expander-color-active) !important;
+		border: var(--uwp-expander-border-active) !important;
+		background-color: var(--uwp-expander-background-active) !important;
+	}
+	.login-list-item::before {
+		content: "";
+		width: 0 !important;
+		display: block !important;
+		padding: var(--uwp-nav-item-selector-height) calc(var(--uwp-nav-item-selector-width) / 2) !important;
+		background: transparent !important;
+		margin-right: var(--uwp-expander-hor-padding) !important;
+		border-radius: var(--uwp-nav-item-selector-radius);
+	}
+	header {
+		border-bottom: none !important;
+	}
+
+	@media (prefers-color-scheme: light) {
+		.login-list-item.selected::before {
+			background: color-mix(in srgb, AccentColor 60%, black) !important;
+		}
+	}
+	@media (prefers-color-scheme: dark) {
+		.login-list-item.selected::before {
+			background: color-mix(in srgb, AccentColor 60%, white) !important;
+		}
+	}
+}
+
+@-moz-document url-prefix("about:debugging") {
+	:root {
+		--bg-color: var(--uwp-background) !important;
+	}
+	.card {
+		color: var(--uwp-expander-color) !important;
+		border: var(--uwp-expander-border) !important;
+		background-color: var(--uwp-expander-background) !important;
+		background-clip: padding-box !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+		box-shadow: none !important;
+		padding: 16px !important;
+		min-height: 51px !important;
+		cursor: default !important;
+		margin-bottom: 3px !important;
+	}
+	.default-input {
+		line-height: normal !important;
+	}
+}

@@ -1,0 +1,219 @@
+@-moz-document regexp("chrome:\/\/(?!devtools).*"), regexp("about:(?!(blank|devtools)).*") {
+
+	menupopup {
+		-moz-appearance: none !important;
+		background: transparent !important;
+		-moz-window-shadow: none !important;
+		border: none !important;
+		padding: var(--uwp-popup-padding) !important;
+		margin: var(--uwp-popup-margin) !important;
+		border-radius: 0px !important;
+	}
+	menupopup.in-menulist {
+		margin: 0px !important;
+		padding: 0px !important;
+		border-radius: 0px !important;
+	}
+	.menupopup-arrowscrollbox, panel-list, .context-menu, ul[role="menu"].menu {
+		-moz-appearance: none !important;
+		padding: var(--uwp-context-margin) !important;
+		background-color: var(--uwp-context-background) !important;
+		background-clip: padding-box !important;
+		background-image: none !important;
+		border: 1px solid var(--uwp-context-border) !important;
+		border-radius: 0px !important;
+		box-shadow: var(--uwp-shadow-context) !important;
+		margin: 0px !important;
+	}
+	.scrollbox-clip * {
+		scrollbar-width: var(--uwp-context-scrollbar-width) !important;
+		scrollbar-color: var(--uwp-scrollbar-thumb) transparent !important;
+	}
+	.context-menu > ul {
+		padding: 0px !important;
+	}
+	.context-menu > ul > li {
+		width: calc(100% - var(--uwp-context-item-margin-width)) !important;
+	}
+	menupopup menuseparator, panel-item-separator, hr[role="separator"], .context-menu > ul > li.separator {
+		-moz-appearance: none !important;
+		border: none !important;
+		padding: .5px 0px .5px 0px !important;
+		margin: var(--uwp-context-separator-margin) !important;
+		height: 0px !important;
+		background-color: var(--uwp-context-separator) !important;
+	}
+	.context-menu > ul > li.separator {
+		width: auto !important;
+	}
+	menupopup menucaption {
+		color: var(--uwp-global-front) !important;
+		font-style: normal !important;
+	}
+	menupopup menuitem, menupopup menu, button[role="menuitem"], .autocomplete-richlistitem, select > option {
+		-moz-appearance: none !important;
+		color: var(--uwp-context-item-color) !important;
+		background-color: var(--uwp-context-item-background) !important;
+		border-radius: 0px !important;
+		padding-top: var(--uwp-context-item-padding-top) !important;
+		padding-bottom: var(--uwp-context-item-padding-bottom) !important;
+		border: none !important;
+		font-size: 12px !important;
+		margin: var(--uwp-context-item-margin) !important;
+	}
+	.menuitem-iconic > .menu-iconic-left {
+		padding-top: 0px !important;
+	}
+	button[role="menuitem"] {
+		background-position-x: 10px !important;
+		padding-left: 36px !important;
+	}
+	select > option {
+		padding-inline: 7px 0px 7px 9px !important;
+	}
+	menupopup menuitem[disabled="true"], menupopup menuitem[disabled="true"] > .menu-text {
+		color: gray !important;
+	}
+	menupopup menuitem:hover, menupopup menu:hover, button[role="menuitem"]:hover, .autocomplete-richlistitem:hover, menupopup menuitem[_moz-menuactive], menupopup menu[_moz-menuactive] {
+		background-color: var(--uwp-context-item-background-hover) !important;
+		border: none !important;
+	}
+	@media (prefers-color-scheme: light) {
+		menupopup menu[open], menupopup menuitem[selected="true"], select > option:checked {
+			background-color: color-mix(in srgb, AccentColor 60%, white) !important;
+		}
+	}
+	@media (prefers-color-scheme: dark) {
+		menupopup menu[open], menupopup menuitem[selected="true"], select > option:checked {
+			background-color: color-mix(in srgb, AccentColor 60%, black) !important;
+		}
+	}
+	menupopup menuitem:hover:active, menupopup menu:hover:active, button[role="menuitem"]:hover:active, .autocomplete-richlistitem:hover:active, menupopup menuitem[selected] {
+		background-color: var(--uwp-context-item-background-active) !important;
+		border: none !important;
+	}
+	menugroup {
+		padding: 0px !important;
+		background-color: transparent !important;
+	}
+	menupopup menuitem > .menu-text, menupopup menuitem > .menu-iconic-text, button[role="menuitem"] > label, button[role="menuitem"] > span {
+		color: var(--uwp-global-front) !important;
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
+		padding: 0px !important;
+	}
+	.menu-accel {
+		color: gray !important;
+	}
+	menupopup[placespopup="true"] menuitem .menu-iconic-icon {
+		margin-left: 2px !important;
+		margin-right: 8px !important;
+	}
+	#context-navigation > .menuitem-iconic {
+		width: auto !important;
+		flex-grow: 1 !important;
+	}
+	menubar {
+		height: var(--uwp-menubar-height)!important;
+	}
+	menubar > menu {
+		-moz-appearance: none !important;
+		color: var(--uwp-global-front) !important;
+		margin: var(--uwp-menubar-item-margin) !important;
+		padding: var(--uwp-menubar-item-padding) !important;
+		font-size: 14px !important;
+		border: none !important;
+		border-radius: 0px !important;
+		background-color: var(--uwp-menubar-item-background) !important;
+	}
+	menubar > menu > .menubar-text {
+		margin: 0px !important;
+	}
+	menubar > menu:hover {
+		color: var(--uwp-button-color-hover) !important;
+		background-color: var(--uwp-menubar-item-background-hover) !important;
+	}
+	menubar > menu:hover:active {
+		color: var(--uwp-button-color-active) !important;
+		background-color: var(--uwp-menubar-item-background-active) !important;
+	}
+	menubar > menu[open] {
+		background-color: var(--uwp-menubar-item-background-selected) !important;
+	}
+	#ContentSelectDropdown > menupopup {
+		background-image: none !important;
+	}
+	#ContentSelectDropdown {
+		padding: 0px !important;
+	}
+	#context-navigation > .menuitem-iconic[_moz-menuactive="true"][disabled="true"] > .menu-iconic-left > .menu-iconic-icon {
+		background: transparent !important;
+	}
+	menulist, menulist[disabled="true"], select {
+		-moz-appearance: none !important;
+		padding: 4px 6px 4px 6px !important;
+		color: var(--uwp-combo-color) !important;
+		background-color: var(--uwp-combo-background) !important;
+		border: var(--uwp-combo-border) !important;
+		background-clip: padding-box !important;
+		border-radius: 0px !important;
+		height: auto !important;
+		box-shadow: none !important;
+	}
+	menulist:hover, select:hover { /* Finish this */
+		color: var(--uwp-combo-color-hover) !important;
+		background-color: var(--uwp-combo-background-hover) !important;
+		border: var(--uwp-combo-border-hover) !important;
+	}
+	menulist[open="true"] {
+		color: var(--uwp-combo-color-active) !important;
+		background-color: var(--uwp-combo-background-active) !important;
+		border: var(--uwp-combo-border-active) !important;
+	}
+	#label-box:not([native]) {
+		font-weight: normal !important;
+	}
+	select {
+		line-height: normal !important;
+	}
+	select:-moz-focusring {
+		outline: none !important;
+	}
+	#context-back > .menu-iconic-left, #context-forward > .menu-iconic-left, #context-reload > .menu-iconic-left, #context-stop > .menu-iconic-left, #context-bookmarkpage > .menu-iconic-left {
+		padding: 0px !important;
+	}
+	#context-navigation > menuitem {
+		padding-left: 0px !important;
+	}
+	#context-navigation > .menuitem-iconic:first-child, #context-navigation > .menuitem-iconic:last-child  {
+		-moz-box-pack: center !important;
+	}
+	#context-navigation > .menuitem-iconic[_moz-menuactive="true"]:not([disabled="true"]) > .menu-iconic-left > .menu-iconic-icon {
+		background: transparent !important;
+	}
+	tooltip { /* Also update the js script */
+		-moz-window-shadow: cliprounded !important;
+		-moz-appearance: none !important;
+		color: var(--uwp-global-front) !important;
+		background-color: var(--uwp-context-tooltip) !important;
+		background-clip: padding-box !important;
+		border: 0px solid var(--uwp-context-tooltip-border) !important;
+		padding: 6px !important;
+		border-radius: 0px !important;
+	}
+	@supports(backdrop-filter: blur(1px)) {
+		panel-list, .context-menu {
+			background-image: var(--uwp-acrylic-noise) !important;
+			background-color: var(--uwp-context-background-blur) !important;
+			backdrop-filter: var(--uwp-acrylic-backdrop) !important;
+		}
+	}
+	.arrow.top, .arrow.bottom {
+		display: none !important;
+	}
+
+	#customization-toolbar-menu {
+		margin-left: -20px !important;
+		margin-top: -30px !important;
+	}
+}

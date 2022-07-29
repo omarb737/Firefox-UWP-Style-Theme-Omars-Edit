@@ -1,0 +1,914 @@
+@media (-moz-windows-compositor) {
+	/* Titlebar */
+	.titlebar-button {
+		width: 46px !important;
+		height: 32px !important;
+		stroke: var(--uwp-titlebar) !important;
+	}
+	.titlebar-button > .toolbarbutton-text {
+		display: none !important;
+	}
+	#minimize-button, #restore-button, #close-button {
+		width: 46px !important;
+		height: 32px !important;
+	}
+	#restore-button {
+		list-style-image: url(../img/titlebox-full-restore.png) !important;
+	}
+	#main-window[sizemode="fullscreen"] #minimize-button {
+		padding-top: 6px !important;
+	}
+	.titlebar-min {
+		padding-bottom: 6px !important;
+	}
+	.titlebar-min:hover, .titlebar-max:hover, .titlebar-restore:hover, #minimize-button:hover, #restore-button:hover {
+		background-color: var(--titlebar-min-max-hover-bg-color) !important;
+	}
+	.titlebar-min:hover:active, .titlebar-max:hover:active, .titlebar-restore:hover:active, #minimize-button:hover:active, #restore-button:hover:active {
+		background-color: var(--titlebar-min-max-active-bg-color) !important;
+	}
+	.titlebar-close:hover, #close-button:hover {
+		background-color: var(--titlebar-close-hover-bg-color)	!important;
+	}
+	.titlebar-close:hover:active, #close-button:hover:active {
+		background-color: var(--titlebar-close-active-bg-color) !important;
+	}
+	.titlebar-buttonbox-container, #window-controls {
+		margin-bottom: 0px !important;
+		-moz-box-align: start !important;
+	}
+	.titlebar-spacer[type="pre-tabs"] {
+		display: none !important;
+	}
+}
+.titlebar-spacer[type="pre-tabs"] {
+	width: 8px !important;
+}
+.titlebar-spacer[type="post-tabs"] {
+	width: 50px !important;
+}
+/* Window */
+/* Temporal fix for top border */
+@media (-moz-windows-compositor) {
+	#main-window {
+		background-color: var(--uwp-mainwindow) !important;
+	}
+}
+@media not (-moz-windows-accent-color-in-titlebar) {
+	#main-window[sizemode="compact"] #navigator-toolbox {
+		border-top: 0px solid transparent !important;
+	}
+}
+:root:not([tabsintitlebar]) #main-window {
+	background-color: var(--uwp-mainwindow) !important;
+}
+/*
+#main-window[chromemargin] {
+	background-color: var(--uwp-mainwindow) !important;
+	-moz-appearance: -moz-win-glass !important;
+}
+#main-window[sizemode="normal"][tabsintitlebar="true"] {
+	margin-top: 1px !important;
+}*/
+/* Tabs */
+.toolbar-items > spacer:first-of-type {
+	display: none !important;
+}
+#tabbrowser-tabs:-moz-window-inactive {
+	--tab-line-color: rgb(128, 128, 128) !important;
+}
+#tabbrowser-tabs {
+	--tab-line-color: AccentColor !important;
+	--tab-loading-fill: AccentColor !important;
+}
+.tabbrowser-tab {
+	padding: 0px !important;
+}
+
+@supports -moz-bool-pref("uwp.sun-valley.round-tabs") {
+	.tabbrowser-tab > .tab-stack > .tab-background {
+		background-color: transparent !important;
+		background-clip: padding-box !important;
+		background-image: none !important;
+		border: var(--uwp-button-border) !important;
+		border-radius: var(--uwp-tags-overlay-radius) !important;
+		margin: 0px 0px !important;
+		box-shadow: none !important;
+		opacity: 1 !important;
+		overflow: hidden !important;
+		transition: background-color 83ms !important;
+	}
+	.tabbrowser-tab[selected="true"] > .tab-stack > .tab-background {
+		background-color: var(--uwp-button-background) !important;
+	}
+	.tabbrowser-tab:hover > .tab-stack > .tab-background {
+		background-color: var(--uwp-button-background-hover) !important;
+		border: none !important;
+	}
+	.tabbrowser-tab:hover:active > .tab-stack > .tab-background {
+		background-color: var(--uwp-button-background-active) !important;
+		border: none !important;
+	}
+	/* Toolbar buttons */
+	.toolbar-items .toolbarbutton-1 {
+		color: var(--uwp-button-color) !important;
+		background-color: var(--uwp-button-background) !important;
+		border: none !important;
+		background-clip: padding-box !important;
+		border-radius: var(--uwp-tags-overlay-radius) !important;
+		margin: 0px !important;
+		transition: background-color 83ms !important;
+	}
+	.toolbar-items .toolbarbutton-1:hover {
+		background-color: var(--uwp-button-background-hover) !important;
+		border: none !important;
+	}
+	.toolbar-items .toolbarbutton-1:hover:active {
+		background-color: var(--uwp-button-background-active) !important;
+		border: none !important;
+	}
+	toolbar .toolbarbutton-1 > .toolbarbutton-icon {
+		--toolbarbutton-inner-padding: 6px !important;
+	}
+}
+@supports not -moz-bool-pref("uwp.sun-valley.round-tabs") {
+	.tabbrowser-tab > .tab-stack > .tab-background {
+		border-top: none !important;
+		margin: 0px !important;
+		box-shadow: none !important;
+		border-radius: 0px !important;
+		opacity: 1 !important;
+		border: none !important;
+		outline: none !important;
+	}
+	.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected]) {
+		background: var(--uwp-tabbar-tab-hover) !important;
+	}
+	.tabbrowser-tab .tab-context-line {
+		height: 0px !important;
+		background: var(--identity-tab-color) !important;
+		margin-left: 16px !important;
+		margin-right: 16px !important;
+		transition: margin 200ms !important;
+		margin-top: 0px !important;
+	}
+	.tabbrowser-tab:not([class*="identity-color"]) .tab-context-line {
+		background: AccentColor !important;
+	}
+	.tabbrowser-tab .tab-context-line:-moz-window-inactive {
+		background: rgb(128, 128, 128) !important;
+	}
+	.tabbrowser-tab:is([selected="true"], [multiselected="true"]) .tab-context-line, .tabbrowser-tab:hover .tab-context-line {
+		height: 2px !important;
+		margin-left: 0px !important;
+		margin-right: 0px !important;
+	}
+	/* Toolbar buttons */
+	.toolbar-items .toolbarbutton-1 {
+		margin-bottom: 0px !important;
+	}
+	.toolbar-items .toolbarbutton-1:hover {
+		background: var(--uwp-tabbar-button-hover) !important;
+	}
+	.toolbar-items .toolbarbutton-1:hover:active {
+		background: var(--uwp-tabbar-button-hover-active) !important;
+	}
+}
+.tab-icon-overlay {
+	opacity: 1 !important;
+	left: 4px !important;
+	bottom: 4px !important;
+	fill: var(--uwp-global-front) !important;
+	fill-opacity: 1 !important;
+	padding: 0px !important;
+}
+.tab-icon-stack .tab-icon-image {
+	opacity: 1 !important;
+}
+:root[tabsintitlebar]:not(:-moz-window-inactive) {
+	 color: var(--uwp-global-front) !important;
+}
+.tab-throbber[progress]:not([selected="true"])::before {
+    fill: #555555 !important;
+}
+.tabbrowser-tab::before, .tabbrowser-tab::after {
+	display: none !important;
+}
+.all-tabs-item {
+	margin-inline: 0px !important;
+	border-radius: 0px !important;
+}
+#scrollbutton-up, #scrollbutton-down {
+	margin-bottom: 0px !important;
+    border: none !important;
+	 border-radius: 0px !important;
+}
+#scrollbutton-up:hover, #scrollbutton-down:hover {
+	background: var(--uwp-tabbar-button-hover) !important;
+}
+#scrollbutton-up:hover:active, #scrollbutton-down:hover:active {
+	background: var(--uwp-tabbar-button-hover-active) !important;
+}
+#TabsToolbar {
+	color: var(--uwp-global-front) !important;
+}
+.toolbar-items .toolbarbutton-1 > .toolbarbutton-icon {
+	background: none !important;
+}
+toolbarbutton.subviewbutton {
+	box-shadow: none !important;
+}
+#PlacesToolbar .bookmark-item {
+	padding: 4px !important;
+}
+:root:not([uidensity="compact"]):not([chromehidden~="toolbar"]) #nav-bar > #PanelUI-button {
+	border: none !important;
+}
+:root:not([tabsintitlebar]) .browser-toolbar {
+	-moz-appearance: none !important;
+	padding: 0px !important;
+}
+toolbarbutton.close-icon {
+	 border-radius: 0px !important;
+}
+/* navbar stuff */
+#nav-bar {
+	box-shadow: none !important;
+}
+#navigator-toolbox, #navigator-toolbox::after {
+	border-bottom: 0px !important;
+}
+#navigator-toolbox {
+	background: black !important;
+}
+@supports -moz-bool-pref("privacy.resistFingerprinting.letterboxing") {
+	#navigator-toolbox {
+		margin-bottom: var(--uwp-navbar-letterbox) !important;
+	}
+	#PersonalToolbar[collapsed="false"] {
+		margin-bottom: var(--uwp-navbar-letterbox-bookmarks) !important;
+	}
+}
+@media (-moz-windows-compositor) {
+	@supports -moz-bool-pref("uwp.sun-valley.round-tabs") {
+		@supports -moz-bool-pref("uwp.sun-valley.mica") {
+			:root[sizemode="fullscreen"] #navigator-toolbox-background {
+				background: var(--uwp-background) !important;
+			}
+		}
+		@supports not -moz-bool-pref("uwp.sun-valley.mica") {
+			#navigator-toolbox-background {
+				background: var(--uwp-background) !important;
+			}
+		}
+	}
+}
+#browser vbox#appcontent tabbrowser, #content, #tabbrowser-tabpanels, browser[type=content-primary], browser[type=content] > html {
+	background: var(--uwp-browser) !important;
+}
+/*
+@supports -moz-bool-pref("uwp.sun-valley.mica") {
+	#browser vbox#appcontent tabbrowser, #content, #tabbrowser-tabpanels, browser[type=content-primary], browser[type=content] > html {
+		background: transparent !important;
+	}
+}
+*/
+#tracking-protection-icon-container, #identity-box {
+	border: none !important;
+}
+#identity-box[pageproxystate="valid"]  .identity-box-button {
+	background: transparent !important;
+}
+/* Findbar */
+.findbar-find-previous, .findbar-find-next {
+	border: none !important;
+	margin-left: 5px !important;
+	border-radius: 0px !important;
+}
+findbar {
+	background-color: var(--uwp-findbar-background) !important;
+	border-top: none !important;
+}
+findbar[hidden] {
+	visibility: collapse !important;
+	margin-bottom: -40px !important;
+	opacity: 1 !important;
+}
+.findbar-find-previous > .toolbarbutton-text, .findbar-find-next > .toolbarbutton-text {
+	padding: 0 !important;
+}
+.findbar-textbox {
+	border-radius: 0px !important;
+}
+Panels
+.panel-arrowbox {
+	display: none !important;
+}
+@media not (-moz-windows-compositor) {
+	slot[part="content"]:only-child {
+		margin: var(--uwp-popup-padding) !important;
+		border: 0px solid var(--uwp-context-border) !important;
+      border-radius: 0px !important;
+		background: var(--uwp-context-background) !important;
+		background-clip: padding-box !important;
+		box-shadow: var(--uwp-shadow-context) !important;
+		overflow: clip !important;
+	}
+}
+@media (-moz-windows-compositor) {
+	.panel-arrowbox + slot[part="content"] {
+		margin: 0px !important;
+		box-shadow: none !important;
+		background-clip: padding-box !important;
+		border: 0px solid var(--uwp-context-border) !important;
+	}
+	slot[part="content"]:only-child {
+		margin: var(--uwp-popup-padding) !important;
+		border: 1px solid var(--uwp-context-border) !important;
+      border-radius: 0px !important;
+		background: var(--uwp-context-background) !important;
+		background-clip: padding-box !important;
+		box-shadow: var(--uwp-shadow-context) !important;
+		overflow: clip !important;
+	}
+}
+.panel-arrowcontent {
+	margin: 0px !important;
+}
+.addon-banner-item, .panel-banner-item {
+	border-radius: 0px !important;
+	margin: 0px !important;
+	margin-inline: 0px !important;
+	padding: var(--arrowpanel-menuitem-padding) !important;
+}
+.addon-banner-item > .toolbarbutton-text, .panel-banner-item > .toolbarbutton-text {
+	margin: 0px !important;
+}
+panel .text-link {
+	color: AccentColor !important;
+}
+/* Various Panels */
+#PopupAutoComplete {
+	margin: var(--uwp-popup-margin) !important;
+}
+panel[position*="bottomcenter"] {
+	margin-top: -2px !important;
+}
+panel[position*="topleft"]:not([position~="bottomleft"]) {
+	margin-left: -22px !important;
+}
+panel[position*="topright"] {
+	margin-right: -11px !important;
+}
+panel[position*="bottomleft"] {
+	margin-left: -11px !important;
+	margin-bottom: -18px !important;
+}
+#editBookmarkPanelFavicon {
+	display: none !important;
+}
+#editBMPanel_folderRow .menulist-label-box {
+	fill: white !important;
+}
+#editBMPanel_folderRow .menulist-label {
+	color: white !important;
+	padding-left: 5px !important;
+}
+#editBookmarkPanelImage {
+	border-bottom: none !important;
+}
+#editBookmarkPanel .panel-header {
+	border-bottom: none !important;
+}
+#customization-container {
+	background: transparent !important;
+}
+#customization-uidensity-button {
+	width: 200px !important;
+}
+#customization-uidensity-menuitem-compact {
+	width: 184px !important;
+}
+#customization-uidensity-autotouchmode-checkbox {
+	width: 175px !important;
+	margin-left: 0px !important;
+}
+#customization-lwtheme-menu > .panel-arrowcontainer > box.panel-arrowcontent {
+	background: #2B2B2B !important;
+	border: 1px #2B2B2B solid !important;
+}
+#customization-uidensity-menu > .panel-arrowcontainer > box.panel-arrowcontent {
+	background: #2B2B2B !important;
+	border: 1px #2B2B2B solid !important;
+}
+#customization-lwtheme-menu {
+	margin-bottom: -30px !important;
+	margin-left: -20px !important;
+}
+#customization-lwtheme-button {
+	width: 200px !important;
+}
+#customization-lwtheme-menu-header {
+	width: 200px !important;
+}
+#customization-lwtheme-menu-recommended, #customization-lwtheme-menu-footer {
+	display: none !important;
+}
+#customization-uidensity-touch-spacer {
+	border-top-color: var(--uwp-context-separator) !important;
+}
+.customization-uidensity-menuitem, .customization-lwtheme-menu-theme {
+	border-radius: 0px !important;
+}
+.identity-popup-security-connection:not(.identity-button) .identity-popup-connection-secure {
+	margin-left: 38px !important;
+}
+.whatsNew-message-body {
+	background: transparent !important;
+	border: none !important;
+}
+#DateTimePickerPanel {
+    --arrowpanel-background: var(--uwp-context-background) !important;
+}
+/* Old */
+#urlbar {
+	border: none !important;
+	box-shadow: none !important;
+	font-size: 1.15em !important;
+	--urlbar-toolbar-height: var(--uwp-urlbar-height) !important;
+}
+#urlbar-container {
+	--urlbar-container-height: var(--uwp-urlbar-height) !important;
+}
+#search-container {
+   margin: 0px !important;
+   padding: 0px !important;
+}
+#searchbar {
+   box-shadow: none !important;
+}
+.searchbar-separator {
+   display: none !important;
+}
+.search-panel-header {
+	padding-top: 4px !important;
+	padding-block: 4px !important;
+	margin-bottom: 1px !important;
+}
+/*#urlbar:not(.megabar) {
+	background-color: var(--uwp-autocomplete-list) !important;
+}*/
+/* Megabar */
+#urlbar-background {
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+	outline: none !important;
+}
+#urlbar[breakout][breakout-extend] {
+	top: 0px !important;
+	left: 0px !important;
+	width: 100% !important;
+}
+#searchbar:focus-within {
+	outline: none !important;
+}
+#PopupSearchAutoComplete {
+	-moz-window-shadow: none !important;
+}
+@supports not -moz-bool-pref("uwp.sun-valley") {
+	#urlbar-input-container, #searchbar {
+		border: none !important;
+		background-color: var(--uwp-urlbar) !important;
+		padding-left: 1px !important;
+		padding-right: 1px !important;
+	}
+	#urlbar-input-container:hover, #searchbar:hover {
+		background-color: var(--uwp-navbar-background-hover) !important;
+	}
+	#urlbar[breakout][breakout-extend] > #urlbar-input-container {
+		height: var(--urlbar-toolbar-height) !important;
+	}
+	#urlbar-results {
+		padding: 0px !important;
+	}
+	.urlbarView {
+		margin-inline: 0px !important;
+		border: none !important;
+		width: 100% !important;
+		background-color: transparent !important;
+		box-shadow: var(--uwp-shadow-popup) !important;
+		clip-path: inset(0px -20px -30px -20px) !important;
+		animation: none !important;
+		margin-block-start: 0px !important;
+	}
+	#urlbar[breakout][breakout-extend] #urlbar-background {
+		background: var(--uwp-autocomplete-list) !important;
+	}
+	.urlbarView-results {
+		padding-block: 0px !important;
+	}
+	.urlbarView .urlbarView-row {
+		border-radius: 0px !important;
+		padding-block: 0px !important;
+	}
+	.urlbarView-row-inner {
+		border-radius: 0px !important;
+	}
+}
+@supports -moz-bool-pref("uwp.sun-valley") {
+	#urlbar[breakout][breakout-extend] #urlbar-background {
+		display: block !important;
+		background: var(--uwp-autocomplete-list) !important;
+		background-clip: padding-box !important;
+		border: 0px solid var(--uwp-surface-stroke-flyout) !important;
+		box-shadow: var(--uwp-shadow-popup) !important;
+      border-radius: 0px !important;
+	}
+	#urlbar-input-container, #searchbar {
+		border: 0px solid transparent !important;
+		background-clip: padding-box !important;
+		background-color: transparent !important;
+		padding-left: 1px !important;
+		padding-right: 1px !important;
+	}
+	#urlbar-input-container:hover, #searchbar:hover {
+		background-color: var(--uwp-navbar-background-hover) !important;
+	}
+	#urlbar[breakout][breakout-extend] > #urlbar-input-container {
+		height: var(--urlbar-toolbar-height) !important;
+      border-radius: 0px !important;
+      border-bottom-left-radius: 0px !important;
+		border-bottom-right-radius: 0px !important;
+	}
+	#urlbar-results {
+		padding: var(--uwp-context-margin) !important;
+	}
+	.urlbarView {
+		margin-inline: 0px !important;
+		width: 100% !important;
+		border: none !important;
+		background: transparent !important;
+		animation: none !important;
+		margin-block-start: 0px !important;
+		border-bottom-left-radius: 0px !important;
+		border-bottom-right-radius: 0px !important;
+	}
+	.urlbarView-results {
+		padding-block: 0px !important;
+	}
+	.urlbarView .urlbarView-row {
+		border-radius: 0px !important;
+		padding-block: 0px !important;
+		padding: var(--uwp-context-item-margin) !important;
+		margin-inline: 0px !important;
+	}
+	.urlbarView-row-inner {
+		background: transparent !important;
+		border-radius: 0px !important;
+	}
+	.urlbarView-row-inner:hover {
+		background-color: var(--uwp-context-item-background-hover) !important;
+	}
+	.urlbarView-row-inner:hover:active {
+		background-color: var(--uwp-context-item-background-active) !important;
+	}
+	.urlbarView-row[selected] .urlbarView-row-inner {
+		padding-left: 0px !important;
+		background-color: var(--uwp-context-item-background-hover) !important;
+		position: relative !important;
+	}
+	.urlbarView-row[selected] .urlbarView-row-inner::before {
+		content: "";
+		width: 0 !important;
+		display: block !important;
+		position: absolute !important;
+		background-color: AccentColor !important;
+		padding: 8px 1.5px !important;
+		border-radius: var(--uwp-nav-item-selector-radius) !important;
+		margin-right: 7px !important;
+	}
+	.urlbarView-row[selected] .urlbarView-no-wrap, .urlbarView-results[wrap] .urlbarView-row[selected] .urlbarView-url {
+		margin-left: 10px !important;
+	}
+}
+.urlbarView-body-inner {
+	border: none !important;
+}
+.urlbarView-title {
+	height: 18px !important;
+	overflow: visible !important;
+}
+.urlbarView-row[type="tip"] > .urlbarView-row-inner {
+    min-height: unset !important;
+	padding-block: 0px !important;
+}
+.urlbarView-row[type="tip"] > .urlbarView-row-inner > .urlbarView-favicon, .urlbarView-row[type="tip"] > .urlbarView-row-inner > .urlbarView-title, .urlbarView-tip-button, .urlbarView-tip-help {
+    margin-block-end: 0px !important;
+}
+.urlbarView-row[type="tip"]:not(:first-child) {
+    margin-top: 0px !important;
+}
+.urlbarView-row[type="tip"]:not(:last-child) {
+    margin-bottom: 0px !important;
+}
+.urlbarView-row[type="tip"] > .urlbarView-row-inner > .urlbarView-favicon {
+    width: 16px !important;
+    height: 16px !important;
+    flex-basis: 16px !important;
+}
+.urlbarView-row[selected] > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-action {
+	color: var(--uwp-global-front) !important;
+}
+.urlbarView-tip-help {
+	height: 28px !important;
+	box-shadow: none !important;
+}
+.urlbarView-tip-help[selected] {
+	background-color: var(--uwp-tags-button-hover-active) !important;
+}
+.urlbarView-tip-button {
+	font-size: unset !important;
+}
+#urlbar .search-one-offs:not([hidden]) {
+	padding-block: 0px !important;
+}
+#urlbar .searchbar-engine-one-off-item {
+    margin-inline-end: 0px !important;
+}
+/*@supports(backdrop-filter: blur(1px)) {
+	#urlbar[breakout][breakout-extend] #urlbar-background {
+		background-image: var(--uwp-acrylic-noise) !important;
+		background-color: var(--uwp-urlbar-blur) !important;
+		backdrop-filter: var(--uwp-acrylic-backdrop) !important;
+	}
+}*/
+/* Tracking toggle */
+#appMenu-tp-toggle {
+	margin-top: 6px !important;
+	margin-bottom: 6px !important;
+}
+#appMenu-tp-toggle[enabled="true"] {
+	background-color: AccentColor !important;
+	border: none !important;
+}
+#appMenu-tp-toggle > .toolbarbutton-text {
+	padding: 0px !important;
+}
+/* Customization Page Overflow */
+#customization-panel-container {
+	padding-right: 0px !important;
+}
+/* Sync Icon */
+#appMenu-fxa-icon[syncstatus="active"] > .toolbarbutton-icon, #PanelUI-remotetabs-syncnow[syncstatus="active"] > .toolbarbutton-icon {
+	fill: AccentColor !important;
+}
+/* Sidebar */
+#sidebar-box {
+	background-color: transparent !important;
+}
+body[lwt-sidebar] {
+	background-color: transparent !important;
+}
+#sidebar-header {
+	background: transparent !important;
+	border-bottom: none !important;
+}
+#sidebar-switcher-target:hover {
+  background: var(--uwp-tabbar-button-hover) !important;  
+}
+#sidebar-switcher-target.active {
+  background: var(--uwp-tabbar-button-hover-active) !important;
+}
+#sidebar-switcher-target > #sidebar-icon {
+	fill: var(--uwp-global-front) !important;
+}
+#sidebar-splitter {
+	border: none !important;
+}
+/* Status Panel */
+#statuspanel-label {
+	background-color: var(--uwp-statuspanel) !important;
+	background-clip: padding-box !important;
+	color: var(--uwp-global-front) !important;
+	border: none !important;
+	padding: 4px !important;
+	box-shadow: -10px 10px 10px 14px rgba(0, 0, 0, .5) !important;
+	clip-path: inset(-20px -20px 0px 0px) !important;
+}
+@supports -moz-bool-pref("uwp.sun-valley") {
+	#statuspanel-label {
+		border: 1px solid var(--uwp-surface-stroke-flyout) !important;
+		border-radius: 0px !important;
+		margin: 0px 0px 0px 0px !important;
+		box-shadow: var(--uwp-shadow-popup) !important;
+		clip-path: unset !important;
+	}
+}
+/*@supports(backdrop-filter: blur(1px)) {
+	#statuspanel-label {
+		background-image: var(--uwp-acrylic-noise) !important;
+		background-color: var(--uwp-context-background-blur) !important;
+		backdrop-filter: var(--uwp-acrylic-backdrop) !important;
+	}
+}*/
+/* Notifications? */
+notification {
+	background-color: var(--uwp-bottom-background) !important;
+	border: none !important;
+	color: var(--uwp-global-front) !important;
+}
+/* FXA Panel */
+.PanelUI-fxa-signin-button {
+	padding: 3px !important;
+	background-color: var(--uwp-tags-button) !important;
+	border: 2px var(--uwp-tags-button) solid !important;
+	border-radius: 0px !important;
+	color: var(--uwp-tags-button-color) !important;
+}
+.PanelUI-fxa-signin-button:hover {
+	border-color: var(--uwp-tags-button-hover) !important;
+}
+.PanelUI-fxa-signin-button:hover:active {
+	background-color: var(--uwp-tags-button-hover-active) !important;
+	border-color: var(--uwp-tags-button-hover-active) !important;
+}
+#PanelUI-fxa-menu-syncnow-button[syncstatus="active"] > .toolbarbutton-icon {
+	fill: AccentColor !important;
+}
+#fullscreen-warning {
+	border: none !important;
+	border-radius: 0px !important;
+	background-color: var(--uwp-autocomplete-list) !important;
+	box-shadow: var(--uwp-shadow-popup) !important;
+	color: var(--uwp-foreground) !important;
+}
+.pointerlockfswarning[ontop] {
+	transform: translate(-50%, 10px) !important;
+}
+@supports -moz-bool-pref("uwp.sun-valley") {
+	#fullscreen-warning  {
+		border: 0px solid var(--uwp-surface-stroke-flyout) !important;
+		margin: 0px 0px 0px 0px !important;
+	}
+}
+/*@supports(backdrop-filter: blur(1px)) {
+	#fullscreen-warning {
+		background-image: var(--uwp-acrylic-noise) !important;
+		background-color: var(--uwp-context-background-blur) !important;
+		backdrop-filter: var(--uwp-acrylic-backdrop) !important;
+	}
+}*/
+.ctrlTab-preview > .ctrlTab-preview-inner, #ctrlTab-showAll {
+	border: 0px solid transparent !important;
+	background: transparent !important;
+}
+.ctrlTab-preview:focus > .ctrlTab-preview-inner, #ctrlTab-showAll:focus {
+	border: 0px solid white !important;
+}
+.ctrlTab-preview, #ctrlTab-showAll {
+	color: var(--uwp-global-front) !important;
+	text-shadow: none !important;
+}
+.ctrlTab-preview, .ctrlTab-preview:hover:active {
+	background: transparent !important;
+	border: none !important;
+}
+.ctrlTab-preview-inner {
+	border: none !important;
+	border-radius: 0px !important;
+}
+.ctrlTab-canvas {
+	box-shadow: none !important;
+	transition: transform 50ms !important;
+}
+.ctrlTab-preview:hover:active .ctrlTab-canvas {
+	transform: scale(0.95) !important;
+	transition: transform 100ms !important;
+}
+#ctrlTab-panel {
+	--panel-background: var(--uwp-context-background-blur) !important;
+}
+.container.infobar {
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+	border-radius: 0px !important;
+}
+.container.infobar::before {
+	display: none !important;
+}
+.infobar > .icon {
+	color: AccentColor !important;
+	margin-left: 8px !important;
+}
+#urlbar-zoom-button {
+	background: transparent !important;
+}
+
+.panel-banner-item {
+	margin: var(--arrowpanel-menuitem-margin) !important;
+	padding: var(--arrowpanel-menuitem-padding) !important;
+	border-radius: 0px !important;
+}
+
+:root {
+	--toolbarbutton-border-radius: 0px !important;
+	--tab-min-height: 25px !important;
+	--lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;
+	--toolbarbutton-outer-padding: 0px !important;
+	--uwp-urlbar-height: 25px !important;
+	--arrowpanel-menuitem-padding: 8px 10px !important;
+	--panel-banner-item-background-color: transparent !important;
+	--toolbar-start-end-padding: 0px !important;
+	--urlbarView-item-inline-padding: 8px !important;
+	--urlbar-box-bgcolor: var(--urlbar-result-hover-bgcolor) !important;
+	--toolbarbutton-hover-background: var(--uwp-navbar-button-hover) !important;
+	--toolbarbutton-active-background: var(--uwp-navbar-button-hover) !important;
+	--tab-border-radius: 0px !important;
+	--panel-font-size: 12px !important;
+	--lwt-toolbarbutton-icon-fill-attention: AccentColor !important;
+
+	--zoom-controls-bgcolor: transparent !important;
+	--toolbar-bgimage: none !important;
+	--panel-banner-item-update-supported-bgcolor: AccentColor !important;
+
+	--toolbar-field-focus-background-color: var(--uwp-button-background) !important;
+	--urlbar-box-focus-bgcolor: var(--uwp-button-background) !important;
+
+	--uwp-navbar-letterbox: 20px;
+	--uwp-navbar-letterbox-bookmarks: 0px;
+}
+:root[uidensity="compact"] {
+	--uwp-navbar-letterbox: 7px;
+	--uwp-navbar-letterbox-bookmarks: -6px;
+}
+:root[uidensity="touch"] {
+	--tab-min-height: 42px !important;
+	--uwp-urlbar-height: 42px !important;
+	--toolbarbutton-inner-padding: 8px !important;
+
+	--uwp-navbar-letterbox: 9px;
+	--uwp-navbar-letterbox-bookmarks: 0px;
+}
+@media (-moz-windows-compositor) {
+	/* Temporal fix for top border */
+	:root[sizemode="normal"][tabsintitlebar]:-moz-window-inactive {
+		border-top-color: #2B2B2B !important;
+	}
+}
+
+@supports -moz-bool-pref("uwp.sun-valley.mica") {
+	#main-window:not([sizemode="fullscreen"])  {
+		appearance: -moz-win-glass !important;
+		background: transparent !important;
+	}
+	#appcontent {
+		appearance: -moz-win-exclude-glass !important;
+	}
+	:root:not([sizemode="fullscreen"]) .titlebar-button {
+		width: auto !important;
+		height: auto !important;
+		opacity: 0 !important;
+	}
+	:root:not([sizemode="fullscreen"]) .titlebar-button:is(:hover,:active) {
+		opacity: 1 !important;
+	}
+	.titlebar-min {
+		padding: 8px 16px !important;
+		padding-bottom: 7px !important;
+	}
+	:root[sizemode="maximized"] .titlebar-close {
+		padding-right: 19px !important;
+	}
+}
+
+/* Testing shadows  */
+/*
+:root {
+	--chrome-background-color: #202020 !important;
+}
+:root:-moz-window-inactive {
+	--chrome-background-color: #101010 !important;
+}
+#nav-bar {
+	box-shadow: 0px -2px 10px 2px rgba(0, 0, 0, .4) !important;
+	clip-path: inset(-20px 0px 0px 0px) !important;
+}
+.tabbrowser-tab > .tab-stack > .tab-background[selected] {
+	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, .4) !important;
+}
+.titlebar-button {
+	clip-path: inset(0px -20px 0px -20px) !important;
+}
+.titlebar-button:hover {
+	box-shadow: 0px -2px 10px 2px rgba(0, 0, 0, .4) !important;
+	clip-path: inset(0px -20px 0px -20px) !important;
+}
+.tabs-newtab-button:hover, #new-tab-button:hover, #alltabs-button:hover, .scrollbutton-up:hover, .scrollbutton-down:hover {
+	box-shadow: 0px -2px 10px 2px rgba(0, 0, 0, .4) !important;
+	z-index: 2 !important;
+	position: relative !important;
+	clip-path: inset(0px -20px 0px -20px) !important;
+}
+*/

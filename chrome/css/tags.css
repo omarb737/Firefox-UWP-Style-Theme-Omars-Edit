@@ -1,0 +1,774 @@
+/* Base tags for chrome:// and about: pages */
+
+@-moz-document regexp("chrome:\/\/(?!devtools).*"), regexp("about:(?!(blank|devtools)).*") {
+
+	:root {
+		--urlbar-popup-url-color: AccentColor !important;
+		scrollbar-color: var(--uwp-scrollbar-thumb) var(--uwp-scrollbar) !important;
+	}
+
+	::selection {
+		color: AccentColorText !important;
+		background-color: AccentColor !important;
+	}
+
+	/* Button */
+	button, .urlbarView-tip-button, .toggle-group-label,
+	.findbar-find-previous, .findbar-find-next  {
+		color: var(--uwp-button-color) !important;
+		background-color: var(--uwp-button-background) !important;
+		border: var(--uwp-button-border) !important;
+		background-clip: padding-box !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+		-moz-appearance: none !important;
+		padding: 5px 11px 6px 11px !important;
+		cursor: default !important;
+		transition: var(--uwp-button-transition) !important;
+		opacity: 1 !important;
+		box-shadow: none !important;
+		font-weight: normal !important;
+	}
+	button:hover, button[open], .urlbarView-tip-button:hover, .toggle-group-label:hover,
+	.findbar-find-previous:hover, .findbar-find-next:hover {
+		color: var(--uwp-button-color-hover) !important;
+		background-color: var(--uwp-button-background-hover) !important;
+		border: var(--uwp-button-border-hover) !important;
+	}
+	button:hover:active, .urlbarView-tip-button:hover:active,
+	.findbar-find-previous:hover:active, .findbar-find-next:hover:active {
+		color: var(--uwp-button-color-active) !important;
+		background-color: var(--uwp-button-background-active) !important;
+		border: var(--uwp-button-border-active) !important;
+	}
+	button[disabled="true"], button[disabled="true"]:is(:hover, :hover:active),
+	.findbar-find-previous[disabled="true"], .findbar-find-previous[disabled="true"]:is(:hover, :hover:active),
+	.findbar-find-next[disabled="true"], .findbar-find-next[disabled="true"]:is(:hover, :hover:active) {
+		color: var(--uwp-button-color-disabled) !important;
+		background-color: var(--uwp-button-background-disabled) !important;
+		border: var(--uwp-button-border-disabled) !important;
+	}
+	button[dlgtype="accept"] {
+		color: AccentColorText !important;
+		background-color: color-mix(in srgb, AccentColor 90%, #808080) !important;
+	}
+	button[dlgtype="accept"]:hover {
+		color: AccentColorText !important;
+		background-color: color-mix(in srgb, AccentColor 70%, #808080) !important;
+	}
+	button[dlgtype="accept"]:hover:active {
+		color: AccentColorText !important;
+		background-color: color-mix(in srgb, AccentColor 50%, #808080) !important;
+		border-color: transparent !important;
+	}
+	button:-moz-focusring {
+		outline: none !important;
+		box-shadow: none !important;
+		/*outline-offset: 0px !important;
+		outline: 1px solid black !important;
+		box-shadow: 0px 0px 0px 3px white, 0px 0px 0px 3px white, 0px 0px 0px 3px white, 0px 0px 0px 3px white !important;*/
+	}
+	.toggle-group-input:enabled:checked + .toggle-group-label {
+		background-color: AccentColor !important;
+		border-color: AccentColor !important;
+		color: AccentColorText !important;
+	}
+	.toggle-group-input:enabled:checked + .toggle-group-label:hover {
+		/* linear-gradient(AccentColor, AccentColor)*/
+		background-color: color-mix(in srgb, AccentColor 60%, #808080) !important;
+		border: var(--uwp-button-border-hover) !important;
+	}
+	.toggle-group > .toggle-group-label {
+		margin-right: 5px !important;
+	}
+	.expander-down {
+		background: var(--uwp-dropmarker) center center no-repeat !important;
+		background-color: transparent !important;
+		list-style-image: none !important;
+		padding: 11px !important;
+	}
+	.expander-up {
+		background: var(--uwp-dropmarker) center center no-repeat !important;
+		background-color: transparent !important;
+		list-style-image: none !important;
+		padding: 11px !important;
+		transform: rotate(180deg);
+	}
+	.arrowhead {
+		padding: 8px !important;
+		max-height: unset !important;
+		max-width: unset !important;
+	}
+	named-deck-button + named-deck-button {
+		margin-left: 24px !important;
+	}
+	button[role="tab"] {
+		background-color: transparent !important;
+		color: var(--uwp-tags-pivot) !important;
+		border: none !important;
+		border-bottom: 2px solid transparent !important;
+		font-size: 20px !important;
+		padding-bottom: 8px !important;
+	}
+	button[role="tab"][aria-selected="true"] {
+		color: var(--uwp-tags-pivot-selected) !important;
+		border-bottom: 2px solid AccentColor !important;
+		padding-bottom: 8px !important;
+		border-radius: 0px !important;
+	}
+	button[role="tab"]:hover {
+		color: var(--uwp-tags-pivot-hover) !important;
+	}
+	button[role="tab"]:hover:active {
+		background-color: transparent !important;
+		border-top-width: 0px !important;
+		border-left-width: 0px !important;
+		border-right-width: 0px !important;
+	}
+	button[role="tab"][aria-selected="false"]:hover:active {
+		background-color: transparent !important;
+		border-color: transparent !important;
+	}
+
+	/* Text Box */
+	textarea,
+	input:not(#urlbar-input):not(.searchbar-textbox):not(.fake-editable):not([type="radio"]):not([type="checkbox"]):not([type="range"]),
+	.findbar-textbox {
+		color: var(--uwp-input-color) !important;
+		background: var(--uwp-input-background) !important;
+		border: var(--uwp-input-border) !important;
+		-moz-appearance: none !important;
+		padding: 5.5px 5.5px 5.5px 5.5px !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+		box-shadow: none !important;
+		opacity: 1 !important;
+		transition: none !important;
+		outline: none !important;
+	}
+	textarea:hover,
+	input:not(#urlbar-input):not(.searchbar-textbox):not(.fake-editable):not([type="radio"]):not([type="checkbox"]):not([type="range"]):hover,
+	.findbar-textbox:hover {
+		color: var(--uwp-input-color-hover) !important;
+		background: var(--uwp-input-background-hover) !important;
+		border: var(--uwp-input-border-hover) !important;
+	}
+	textarea:focus,
+	input:not(#urlbar-input):not(.searchbar-textbox):not(.fake-editable):not([type="radio"]):not([type="checkbox"]):not([type="range"]):focus,
+	.findbar-textbox:focus {
+		padding: 5.5px 5.5px 5.5px 5.5px !important;
+		color: var(--uwp-input-color-focus) !important;
+		background: var(--uwp-input-background-focus) !important;
+		border: var(--uwp-input-border-focus) !important;
+	}
+	input[disabled]:not(#urlbar-input):not(.searchbar-textbox):not(.fake-editable):not([type="radio"]):not([type="checkbox"]):not([type="range"]) {
+		color: var(--uwp-input-color-disabled) !important;
+		background: var(--uwp-input-background-disabled) !important;
+		border: var(--uwp-input-border-disabled) !important;
+	}
+	search-textbox, textbox {
+		-moz-appearance: none !important;
+		background: transparent !important;
+		border: none !important;
+		outline: none !important;
+		box-shadow: none !important;
+		cursor: default !important;
+	}
+	/* Listbox */
+	listbox {
+		-moz-appearance: none !important;
+		background: black !important;
+		border: 1px #333333 solid !important;
+	}
+	listitem {
+		margin: 0px !important;
+		padding: 1px !important;
+		border: none !important;
+		color: white !important;
+	}
+	listitem:hover {
+		background: #202020 !important;
+	}
+	listitem[selected="true"] {
+		background: #404040 !important;
+	}
+	dropmarker:not([native]) { /* Change this */
+		-moz-appearance: none !important;
+		/*margin-right: 0px !important;
+		padding-right: 20px !important;
+		list-style-image: none !important;
+		background: var(--uwp-dropmarker) center center no-repeat !important;*/
+	}
+	dropmarker > .dropmarker-icon {
+		list-style-image: none !important;
+	}
+	/* Check Box */
+	checkbox {
+		opacity: 1 !important;
+	}
+	checkbox > .checkbox-check, input[type="checkbox"] {
+		background-color: var(--uwp-checkbox-background) !important;
+		border: var(--uwp-checkbox-border) !important;
+		background-clip: padding-box !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+		-moz-context-properties: fill !important;
+		fill: AccentColorText !important;
+		-moz-appearance: none !important;
+		width: 20px !important;
+		height: 20px !important;
+		margin: 0px !important;
+		box-shadow: none !important;
+	}
+	checkbox:hover > .checkbox-check, input[type="checkbox"]:hover {
+		background-color: var(--uwp-checkbox-background-hover) !important;
+		border: var(--uwp-checkbox-border-hover) !important;
+	}
+	checkbox:active > .checkbox-check, input[type="checkbox"]:active {
+		background-color: var(--uwp-checkbox-background-active) !important;
+		border: var(--uwp-checkbox-border-active) !important;
+	}
+	input[type="checkbox"]:checked, checkbox[checked="true"] > .checkbox-check {
+		background: color-mix(in srgb, AccentColor 60%, #808080) !important;
+		border-color: color-mix(in srgb, AccentColor 60%, #808080) !important;
+	}
+	input[type="checkbox"]:checked:hover, checkbox[checked="true"]:hover > .checkbox-check {
+		background-color: color-mix(in srgb, AccentColor 50%, #808080) !important;
+		border-color: color-mix(in srgb, AccentColor 50%, #808080) !important;
+	}
+	input[type="checkbox"]:checked:active, checkbox[checked="true"]:hover:active > .checkbox-check {
+		background-color: color-mix(in srgb, AccentColor 40%, #808080) !important;
+		border-color: color-mix(in srgb, AccentColor 40%, #808080) !important;
+		fill: color-mix(in srgb, AccentColorText 60%, #808080) !important;
+	}
+	checkbox[checked="true"] > .checkbox-check , input[type="checkbox"]:checked {
+		background-image: url("chrome://global/skin/icons/check.svg") !important;
+		background-repeat: no-repeat !important;
+		background-size: var(--uwp-checkbox-check-size) !important;
+		background-position-x: var(--uwp-checkbox-check-position) !important;
+		background-position-y: var(--uwp-checkbox-check-position) !important;
+	}
+	input[type="checkbox"] {
+		margin-right: 10px !important;
+	}
+	input[type="checkbox"]:-moz-focusring {
+		outline: none !important;
+	}
+	.checkbox-label-box {
+		color: var(--uwp-global-front);
+		margin-left: 10px !important;
+	}
+
+	/* Check Box Disabled */
+	checkbox[disabled="true"] > .checkbox-label-box {
+		color: var(--uwp-tags-checkbox-disabled) !important;
+	}
+	checkbox[disabled="true"] > .checkbox-check {
+		background-color: var(--uwp-checkbox-background-disabled) !important;
+		border: var(--uwp-checkbox-border-disabled) !important;
+		fill: var(--uwp-checkbox-color-disabled) !important;
+	}
+	checkbox[disabled="true"][checked="true"] > .checkbox-check, checkbox[disabled="true"][checked="true"]:is(:hover, :hover:active) > .checkbox-check  {
+		background-color: var(--uwp-checkbox-background-checked-disabled) !important;
+		border: var(--uwp-checkbox-border-checked-disabled) !important;
+		fill: var(--uwp-checkbox-color-disabled) !important;
+	}
+
+	/* Toggle Switch */
+	input[type="checkbox"].toggle-button, input[type="checkbox"] + .slider, .protections-popup-tp-switch {
+		background-clip: padding-box !important;
+		background-color: var(--uwp-togglesw-background) !important;
+		background-image: none !important;
+		border: var(--uwp-togglesw-border) !important;
+		border-radius: 0px !important;
+		padding: 9px !important;
+		padding-right: 32px !important;
+	}
+	.protections-popup-tp-switch {
+		padding: 3px !important;
+		padding-right: 26px !important;
+	}
+	input[type="checkbox"].toggle-button:hover, input[type="checkbox"]:hover + .slider, .protections-popup-tp-switch:hover {
+		background-color: var(--uwp-togglesw-background-hover) !important;
+		border: var(--uwp-togglesw-border-hover) !important;
+	}
+	input[type="checkbox"].toggle-button:active, input[type="checkbox"]:active + .slider, .protections-popup-tp-switch:active {
+		background-color: var(--uwp-togglesw-background-active) !important;
+		border: var(--uwp-togglesw-border-active) !important;
+	}
+	input[type="checkbox"].toggle-button:checked, input[type="checkbox"]:checked + .slider, .protections-popup-tp-switch[enabled] {
+		background: color-mix(in srgb, AccentColor 60%, #808080) !important;
+		border-color: color-mix(in srgb, AccentColor 60%, #808080) !important;
+	}
+	input[type="checkbox"].toggle-button:checked:hover, input[type="checkbox"]:checked:hover + .slider, .protections-popup-tp-switch[enabled]:hover {
+		background-color: color-mix(in srgb, AccentColor 50%, #808080) !important;
+		border-color: color-mix(in srgb, AccentColor 50%, #808080) !important;
+	}
+	input[type="checkbox"].toggle-button:checked:active, input[type="checkbox"]:checked:active + .slider, .protections-popup-tp-switch[enabled]:active {
+		background-color: color-mix(in srgb, AccentColor 40%, #808080) !important;
+		border-color: color-mix(in srgb, AccentColor 40%, #808080) !important;
+	}
+	input[type="checkbox"].toggle-button::before, input + .slider::before, .protections-popup-tp-switch::before {
+	    background: var(--uwp-togglesw-color) !important;
+	    height: 12px !important;
+	    width: 12px !important;
+	    outline: none !important;
+		margin: 0px !important;
+		transition: transform 200ms !important;
+		transform: translateX(-6px) translateY(-6px) !important;
+	}
+	.protections-popup-tp-switch::before {
+		transform: none !important;
+	}
+	input[type="checkbox"].toggle-button:hover::before, input:hover + .slider::before, .protections-popup-tp-switch:hover::before {
+		background: var(--uwp-togglesw-color-hover) !important;
+	}
+	input[type="checkbox"].toggle-button:checked::before, input:checked + .slider::before, .protections-popup-tp-switch[enabled]::before {
+		background: AccentColorText !important;
+		transform: translateX(17px) translateY(-6px) !important;
+	}
+	.protections-popup-tp-switch[enabled]::before {
+		transform: translateX(23px) !important;
+	}
+	input[type="checkbox"].toggle-button:checked:hover::before, input:hover:checked + .slider::before, .protections-popup-tp-switch[enabled]:hover::before {
+		background: AccentColorText !important;
+	}
+	.slider::before {
+		bottom: 0px !important;
+		inset-inline-start: 0px !important;
+	}
+	input[type="checkbox"] + .slider::before {
+		transform: translateX(3px) translateY(-3px) !important;
+	}
+	input[type="checkbox"]:checked + .slider::before {
+		transform: translateX(27px) translateY(-3px) !important;
+	}
+
+	@supports -moz-bool-pref("uwp.sun-valley") {
+		input[type="checkbox"].toggle-button:hover::before, input:hover + .slider::before {
+			height: 14px !important;
+			width: 14px !important;
+			transform: translateX(-7px) translateY(-7px) !important;
+		}
+		input[type="checkbox"].toggle-button:checked:hover::before {
+			transform: translateX(16px) translateY(-7px) !important;
+		}
+		input[type="checkbox"] + .slider:hover::before {
+			transform: translateX(2px) translateY(-2px) !important;
+		}
+		input[type="checkbox"]:checked + .slider:hover::before {
+			transform: translateX(26px) translateY(-2px) !important;
+		}
+	}
+
+	/* Number Input */
+	input[type="number"]::-moz-number-spin-box {
+		display: none !important;
+	}
+
+	/* Radio Button */
+	radio {
+		opacity: 1 !important;
+	}
+	input[type="radio"] {
+		appearance: none !important;
+		background-clip: border-box !important;
+		background-color: var(--uwp-radio-background) !important;
+		border: var(--uwp-radio-border) !important;
+
+		outline: none !important;
+		border-radius: 0% !important;
+		margin-right: 5px !important;
+		box-shadow: none !important;
+		width: auto !important;
+		height: auto !important;
+		list-style: none !important;
+	}
+	input[type="radio"]:hover {
+		background-color: var(--uwp-radio-background-hover) !important;
+		border: var(--uwp-radio-border-hover) !important;
+	}
+	input[type="radio"]:hover:active {
+		background-color: var(--uwp-radio-background-active) !important;
+		border: var(--uwp-radio-border-active) !important;
+	}
+	input[type="radio"]:checked {
+		background-color: color-mix(in srgb, AccentColor 60%, #808080) !important;
+		border-color: color-mix(in srgb, AccentColor 60%, #808080) !important;
+	}
+	input[type="radio"]:checked:hover {
+		background-color: color-mix(in srgb, AccentColor 50%, #808080) !important;
+		border-color: color-mix(in srgb, AccentColor 50%, #808080) !important;
+	}
+	input[type="radio"]:checked:hover:active {
+		background-color: color-mix(in srgb, AccentColor 40%, #808080) !important;
+		border-color: color-mix(in srgb, AccentColor 40%, #808080) !important;
+	}
+	input[type="radio"]::before {
+		display: block !important;
+		content: "" !important;
+		background: transparent !important;
+		height: var(--uwp-radio-dot-size) !important;
+		width: var(--uwp-radio-dot-size) !important;
+		margin: var(--uwp-radio-border-padding) !important;
+		border-radius: 0% !important;
+		transition: var(--uwp-radio-transition) !important;
+	}
+	input[type="radio"]:hover::before {
+		height: var(--uwp-radio-dot-size-hover) !important;
+		width: var(--uwp-radio-dot-size-hover) !important;
+		margin: var(--uwp-radio-border-padding-hover) !important;
+	}
+	input[type="radio"]:hover:active::before {
+		background: AccentColorText !important;
+	}
+	input[type="radio"]:checked::before {
+		background: AccentColorText !important;
+	}
+	input[type="radio"]:checked:hover::before {
+		background: AccentColorText !important;
+	}
+	input[type="radio"]:checked:hover:active::before {
+		background: AccentColorText !important;
+	}
+	input[type="radio"] + span {
+		position: relative !important;
+		bottom: 0px !important;
+	}
+	/* Old radio buttons */
+	radio > .radio-check {
+		-moz-context-properties: fill !important;
+		appearance: none !important;
+
+		appearance: none !important;
+		background-clip: padding-box !important;
+		background-color: var(--uwp-radio-background) !important;
+		border: var(--uwp-radio-border) !important;
+		border-radius: 0% !important;
+
+		padding: calc(var(--uwp-radio-border-padding) + var(--uwp-radio-dot-size) / 2) !important;
+		margin-right: 5px !important;
+		box-shadow: none !important;
+		width: auto !important;
+		height: auto !important;
+	}
+	radio:hover > .radio-check {
+		background-color: var(--uwp-radio-background-hover) !important;
+		border: var(--uwp-radio-border-hover) !important;
+	}
+	radio:hover:active > .radio-check {
+		background-color: var(--uwp-radio-background-active) !important;
+		border: var(--uwp-radio-border-active) !important;
+	}
+	radio[selected="true"] > .radio-check {
+		padding: var(--uwp-radio-selected-padding) !important;
+		fill: AccentColorText !important;
+		list-style-image: url("chrome://global/skin/icons/radio.svg") !important;
+		background-clip: border-box !important;
+		background-color: color-mix(in srgb, AccentColor 60%, #808080) !important;
+		border-color: color-mix(in srgb, AccentColor 60%, #808080) !important;
+	}
+	radio[selected="true"]:hover > .radio-check {
+		fill: AccentColorText !important;
+		background-color: color-mix(in srgb, AccentColor 50%, #808080) !important;
+		border-color: color-mix(in srgb, AccentColor 50%, #808080) !important;
+	}
+	radio[selected="true"]:hover:active > .radio-check {
+		fill: AccentColorText !important;
+		background-color: color-mix(in srgb, AccentColor 40%, #808080) !important;
+		border-color: color-mix(in srgb, AccentColor 40%, #808080) !important;
+	}
+	/* Radio Button Disabled */
+	radio[disabled="true"] > .radio-label-box {
+		color: var(--uwp-tags-checkbox-disabled) !important;
+	}
+	radio:is([disabled="true"], [disabled="true"][selected="true"]) > .radio-check {
+		background-color: var(--uwp-radio-background-disabled) !important;
+		border: var(--uwp-radio-border-disabled) !important;
+	}
+	radio:is([disabled="true"], [disabled="true"][selected="true"]):is(:hover, :hover:active) > .radio-check {
+		background-color: var(--uwp-radio-background-disabled) !important;
+		border: var(--uwp-radio-border-disabled) !important;
+	}
+	radio > .radio-label-box {
+		margin-left: 5px !important;
+		outline: none !important;
+	}
+
+	input[type="range"] {
+		-moz-appearance: none !important;
+		border: none !important;
+		background: var(--uwp-tags-slider) !important;
+		height: 2px !important;
+	}
+	input[type="range"]:hover {
+		background: var(--uwp-tags-slider-hover) !important;
+	}
+	input[type="range"]::-moz-range-progress {
+		background: AccentColor !important;
+		height: 2px !important;
+	}
+	input[type="range"]::-moz-range-thumb {
+		background: AccentColor !important;
+		border: none !important;
+		width: 20px !important;
+		height: 20px !important;
+		border-radius: 0% !important;
+	}
+
+	@media (prefers-color-scheme: light) {
+		a, label[href] {
+			color: color-mix(in srgb, AccentColor 80%, black) !important;
+		}
+		a:hover, label[href]:hover {
+			color: color-mix(in srgb, AccentColor 65%, black) !important;
+		}
+		a:hover:active, label[href]:hover:active {
+			color: color-mix(in srgb, AccentColor 50%, black) !important;
+		}
+	}
+	@media (prefers-color-scheme: dark) {
+		a, label[href] {
+			color: color-mix(in srgb, AccentColor 80%, white) !important;
+		}
+		a:hover, label[href]:hover {
+			color: color-mix(in srgb, AccentColor 65%, white) !important;
+		}
+		a:hover:active, label[href]:hover:active {
+			color: color-mix(in srgb, AccentColor 50%, white) !important;
+		}
+	}
+	a:visited, label[href]:visited {
+		color: gray !important;
+	}
+
+	.toolbarbutton-text {
+		color: inherit !important;
+	}
+
+	groupbox {
+		-moz-appearance: none !important;
+		border: none !important;
+	}
+	/* Tree */
+	tree {
+		appearance: none !important;
+		border: var(--uwp-expander-border) !important;
+		background: var(--uwp-expander-content-background) !important;
+		background-clip: padding-box !important;
+	}
+	@supports not -moz-bool-pref("uwp.sun-valley") {
+		tree {
+			border: transparent !important;
+			background: transparent !important;
+		}
+	}
+	treechildren::-moz-tree-image {
+		fill: var(--uwp-foreground) !important;
+	}
+	treechildren::-moz-tree-twisty {
+		fill: var(--uwp-foreground) !important;
+	}
+	treechildren::-moz-tree-row {
+		background-color: transparent !important;
+		background-clip: padding-box !important;
+		outline: none !important;
+		border: none !important;
+	}
+	treechildren::-moz-tree-row(hover) {
+		background-color: var(--uwp-button-background) !important;
+	}
+	treechildren::-moz-tree-row(selected) {
+		background-color: var(--uwp-button-background-hover)  !important;
+	}
+	treechildren::-moz-tree-cell-text {
+		color: var(--uwp-foreground) !important;
+	}
+	treechildren::-moz-tree-cell-text(hover) {
+		color: var(--uwp-foreground) !important;
+	}
+	treechildren::-moz-tree-cell-text(selected) {
+		color: var(--uwp-foreground) !important;
+	}
+	treecol {
+		appearance: none !important;
+		background-clip: padding-box !important;
+		background: transparent !important;
+		border: none !important;
+		fill: var(--uwp-foreground) !important;
+		color: var(--uwp-foreground) !important;
+		padding: 4px !important;
+		box-shadow: none !important;
+	}
+	treecol[hideheader="true"] {
+		padding: 0px !important;
+	}
+	treecol:hover {
+		background-color: var(--uwp-button-background) !important;
+	}
+	treecol:hover:active {
+		background-color: var(--uwp-button-background-hover) !important;
+	}
+	splitter:not(.tree-splitter):not(.devtools-horizontal-splitter) {
+		margin: -4.5px !important;
+		width: 8px !important;
+		background: transparent !important;
+		border: none !important;
+	}
+	/* List Header */
+	listheader {
+		box-shadow: none !important;
+		border: none !important;
+		padding: 0px !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+	}
+
+	/* Richlist Stuff */
+	richlistbox, .options-container {
+		appearance: none !important;
+		background: transparent !important;
+		border-radius: 0px !important;
+		border: none !important;
+	}
+	richlistitem:not(.category), .options-container .option {
+		color: var(--uwp-expander-color) !important;
+		border: var(--uwp-expander-border) !important;
+		background-color: var(--uwp-expander-background) !important;
+		background-clip: padding-box !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+		box-shadow: none !important;
+		padding-left: var(--uwp-expander-hor-padding) !important;
+		padding-right: var(--uwp-expander-hor-padding) !important;
+		min-height: var(--uwp-expander-min-height) !important;
+	}
+	.options-container .option {
+		padding-left: 10px !important;
+	}
+	richlistitem:not(.category):hover, .options-container .option:hover {
+		color: var(--uwp-expander-color-hover) !important;
+		border: var(--uwp-expander-border-hover) !important;
+		background-color: var(--uwp-expander-background-hover) !important;
+	}
+	richlistitem:not(.category):hover:active, .options-container .option:hover:active {
+		color: var(--uwp-expander-color-active) !important;
+		border: var(--uwp-expander-border-active) !important;
+		background-color: var(--uwp-expander-background-active) !important;
+	}
+	richlistitem:not(.category)[selected="true"] {
+		color: var(--uwp-expander-color-selected) !important;
+		border: var(--uwp-expander-border-selected) !important;
+		background-color: var(--uwp-expander-background-selected) !important;
+		background-image: none !important;
+		outline: none !important;
+	}
+	richlistitem + richlistitem {
+		margin-top: var(--uwp-expander-spacing) !important;
+	}
+	richlistbox:focus-visible {
+		border: none !important;
+		box-shadow: none !important;
+		outline: none !important;
+	}
+	richlistbox .actionsMenu {
+		flex: 1 !important;
+		max-height: 32px !important;
+		margin: auto !important;
+	}
+	richlistbox .actionsMenuContainer {
+		display: flex !important;
+	}
+	richlistbox .actionsMenuContainer[hidden="true"] {
+		display: none !important;
+	}
+	progressmeter, progress {
+		-moz-appearance: none !important;
+		border: none !important;
+		background-clip: padding-box !important;
+		background-color: var(--uwp-progress-bar) !important;
+		height: var(--uwp-progress-bar-height) !important;
+		border-radius: 0px !important;
+	}
+	progressmeter > .progress-bar, progress::-moz-progress-bar {
+		background-color: AccentColor !important;
+		margin: var(--uwp-progress-bar-margin) !important;
+		border-radius: var(--uwp-progress-bar-radius) !important;
+		height: var(--uwp-progress-bar-fill-height) !important;
+	}
+	progressmeter[paused="true"] > .progress-bar, progress[paused]::-moz-progress-bar  {
+		background-color: var(--uwp-progress-bar-paused) !important;
+	}
+	progressmeter[mode="undetermined"] > .progress-bar, progress:not([value])::-moz-progress-bar {
+		background-image: none !important;
+		animation: none !important;
+	}
+	progressmeter > .progress-remainder {
+		border: none !important;
+		background: transparent !important;
+	}
+	#downloadsListBox > richlistitem {
+		margin-bottom: 0px !important;
+	}
+	#downloadsListBox .downloadButton:not(:hover, :hover:active) {
+		border-color: transparent !important;
+		background-color: transparent !important;
+	}
+	
+	/* Message-bar */
+	message-bar, .content-blocking-warning {
+		background: var(--uwp-infobar-background) !important;
+		border: var(--uwp-card-stroke-default) !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+	}
+
+	/* Permissions */
+	.identity-popup-permission-remove-button:not(:-moz-focusring):hover > .button-box > .button-icon {
+		fill: currentColor !important;
+	}
+	.identity-popup-expander {
+		border: none !important;
+		background: url("chrome://global/skin/icons/arrow-left.svg") center no-repeat !important;
+	}
+	.identity-popup-expander:hover, .identity-popup-expander[open] {
+		border: none !important;
+	}
+	.identity-popup-expander:hover:active {
+		border: none !important;
+		fill: currentColor !important;
+		background: url("chrome://global/skin/icons/arrow-left.svg") center no-repeat !important;
+		background-color: var(--arrowpanel-dimmed-further) !important;
+	}
+
+	.external {
+		color: AccentColor !important;
+	}
+	.external::after {
+		fill: AccentColor !important;
+	}
+
+	@keyframes fadeInScale {
+		from {
+			opacity: 0;
+			transform: scale(1.05);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1.0);
+		}
+	}
+	@keyframes fadeInOpacity {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+	@keyframes fadeInTransformUp {
+		from {
+			transform: translate(0px, 80px);
+			opacity: 0;
+		}
+		to {
+			transform: translate(0px, 0px);
+			opacity: 1;
+		}
+	}
+
+}

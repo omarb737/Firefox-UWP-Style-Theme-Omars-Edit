@@ -1,0 +1,117 @@
+/*AGENT_SHEET*/
+
+/* MDL2 */
+/* Base Theme */
+@import url(./css/base.css);
+
+/* Pop-ups, Context Menus, Dropdowns, etc */
+@import url(./css/context.css);
+
+/* Base Tags Theme */
+@import url(./css/tags.css);
+
+/* Pages */
+@import url(./css/pagesChrome.css);
+
+/* Styles */
+@import url(./css/styles/mdl2.css);
+@import url(./css/styles/sun-valley.css);
+
+/*
+@supports -moz-bool-pref("pref.here") {
+*/
+
+/* Custom CSS for userChrome.css */
+@import url(./customChrome.css);
+
+/* HIDE AUDIO ICON ON ANY TAB */
+.tabbrowser-tab :-moz-any(.tab-icon-overlay[soundplaying]) {
+    display: none !important;
+}
+.tabbrowser-tab :-moz-any(.tab-icon-overlay[muted]) {
+	display: none !important;
+}
+
+/* HIDE CLOSE ON TAB */
+.tabbrowser-tab .tab-close-button {
+  visibility: collapse !important;
+}
+
+/* HIDE MIN MAX CLOSE */
+.titlebar-buttonbox-container {
+	display: none;
+}
+
+/* HIDE MIN MAX CLOSE IN FULL SCREEN MODE */
+#window-controls  { display:none!important; }
+
+/* ACTIVE TAB COLOUR */
+.tab-background[selected="true"] {
+      background-color: #812525 !important;
+      background-image: none !important;
+    }
+	
+/* LIST-ALL-TABS - NO DROP DOWN*/
+#tabbrowser-tabs ~ #alltabs-button {
+	display: none;!important}
+
+/* URL BAR HEIGHT */
+#urlbar-input {
+  height: 28px !important;
+  font-size: 14px !important;
+}
+#urlbar-container {
+    --urlbar-container-height: 22px !important;
+}
+#urlbar {
+    margin-top: 2px;
+    border: none !important;
+}
+
+
+/* TAB BAR HEIGHT */
+#TabsToolbar {height: var(--tab-min-height) !important;}
+#tabbrowser-tab { 
+      max-height: 24px !important; 
+    }
+    
+    #titlebar {max-height: 64px !important}
+    
+    #titlebar-spacer {max-height: 24px !important}
+    
+    #tabs-newtab-button {max-height: 24px !important}
+    
+    #tab-content {
+      max-height: 24px !important; 
+      vertical-align: middle !important;
+    }
+    
+    #tab-background {
+      max-height: 24px !important;
+    }
+    
+:root {
+ --uwp-accent-color: -moz-accent-color; #d13636 !important;
+}
+:root[uidensity="compact"] {
+ --tab-min-height: 24px !important;
+}
+#scrollbox {max-height: 24px !important;}
+
+/* PINNED TABS/TAB BAR WIDTH */
+tab.tabbrowser-tab[pinned="true"] {
+    min-width: 15px !important;
+}
+/* TABS/TAB BAR WIDTH */
+.tabbrowser-tab[selected="true"] {
+  min-width: 200px !important;
+}
+
+.tabbrowser-tab:not([selected]):not([pinned]) {
+  max-width: 320px !important;
+  min-width: 15px !important;
+}
+
+.tabbrowser-tab[selected="true"]:not([pinned]) {
+  max-width: 400px !important;
+}

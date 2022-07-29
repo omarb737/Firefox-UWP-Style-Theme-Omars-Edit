@@ -1,0 +1,64 @@
+/**/
+@supports -moz-bool-pref("uwp.sun-valley") {
+@media (prefers-color-scheme: light) {
+:root {
+	--uwp-mainwindow: #E6E6E6;
+	--uwp-tabbar-tab-hover: var(--uwp-background-fill-base);
+	--uwp-tabbar-button-hover: var(--uwp-background-fill-base);
+	--uwp-tabbar-button-hover-active: #BBBBBB;
+	--uwp-navbar-background-hover: #DEDEDE;
+	--uwp-browser: #E6E6E6;
+	--uwp-findbar: #161616;
+	--uwp-autocomplete-list: white;
+	--uwp-urlbar: transparent;
+	--uwp-urlbar-blur: #FFFFFFC0;
+	--uwp-autocomplete-oneoffs: #333333;
+	--uwp-sidebar: white;
+	--uwp-sidebar-search: white;
+	--uwp-sidebar-box: white;
+	--uwp-statuspanel: white;
+	--uwp-statuspanel-color: lightgray;
+	--uwp-navbar-button-hover: #E0E0E0;
+
+	--titlebar-min-max-hover-bg-color: #D5D5D5;
+	--titlebar-min-max-active-bg-color: #BBBBBB;
+	--titlebar-close-hover-bg-color: #E81123;
+	--titlebar-close-active-bg-color: #F06F79;
+	--arrowpanel-dimmed: #CDCDCD !important;
+	--chrome-background-color: black !important;
+	--toolbar-bgcolor: white !important;
+	--toolbar-color: var(--uwp-global-front) !important;
+	--toolbarbutton-icon-fill-attention: AccentColor !important;
+
+	--uwp-titlebar: black;
+
+	--autocomplete-popup-background: white !important;
+	--autocomplete-popup-color: var(--uwp-global-front) !important;
+	--autocomplete-popup-highlight-background: AccentColor !important;
+
+	--button-hover-bgcolor: var(--panelview-toolbarbutton-hover-bgcolor) !important;
+	--button-active-bgcolor: var(--panelview-toolbarbutton-active-bgcolor) !important;
+
+	--lwt-sidebar-background-color: var(--uwp-global-back) !important;
+
+	--tab-selected-bgcolor: var(--uwp-background-fill-base) !important;
+}
+
+:root:-moz-window-inactive {
+	--uwp-titlebar: #4C4C4C;
+}
+
+:root #titlebar {
+	--lwt-toolbarbutton-icon-fill: black !important;
+	--toolbarbutton-icon-fill-opacity: 1 !important;
+}
+
+:root:-moz-window-inactive #titlebar {
+	--lwt-toolbarbutton-icon-fill: gray !important;
+}
+
+.tabbrowser-tab {
+	color: black !important;
+}
+}
+}
