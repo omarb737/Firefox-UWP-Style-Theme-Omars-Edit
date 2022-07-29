@@ -31,13 +31,13 @@ If you want to override the accent color create two new prefs, both string type 
 ## Screenshots
 
 <picture>
-  <src="https://i.imgur.com/fC6V4vJ.png">
+  <img src="https://i.imgur.com/fC6V4vJ.png">
 </picture>
 <picture>
-  <src="[https://i.imgur.com/fC6V4vJ.png](https://i.imgur.com/QzgKM27.png)">
+  <img src="[https://i.imgur.com/fC6V4vJ.png](https://i.imgur.com/QzgKM27.png)">
 </picture>
 <picture>
-  <src="[https://i.imgur.com/fC6V4vJ.png](https://i.imgur.com/mCwP6i4.png)">
+  <img src="[https://i.imgur.com/fC6V4vJ.png](https://i.imgur.com/mCwP6i4.png)">
 </picture>
 	
 
