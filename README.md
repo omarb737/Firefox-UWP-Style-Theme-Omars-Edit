@@ -4,8 +4,7 @@ A theme that follows UWP styling. This is a modded version of the Firefox UWP CS
 
 
 ## Install
-
-https://github.com/omarb737/Firefox-UWP-Style-firefox-103-Omars-Edit/blob/master/Firefox-UWP-Style-firefox-103%20(Omar's%20Edit).zip
+ https://github.com/omarb737/Firefox-UWP-Style-Theme-Omars-Edit/blob/master/Firefox-UWP-Style-Theme-Omars-Edit.zip
 
 ## Copy the contents of the chrome folder to your firefox profile chrome folder.
 
